@@ -14,13 +14,11 @@ export class HeaderComponent {
   @HostListener('window:scroll', ['$event'])
   onWindowScroll(event: Event) {
     const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const navbar = this.el.nativeElement.querySelector('.navegacao');
+    const navbar = this.el.nativeElement.querySelector('header');
 
     if (currentScrollTop > this.lastScrollTop) {
-      // Rolando para baixo
       this.renderer.addClass(navbar, 'hidden');
     } else {
-      // Rolando para cima
       this.renderer.removeClass(navbar, 'hidden');
     }
 
