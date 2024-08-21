@@ -1,0 +1,42 @@
+.container{
+    width: 100%;
+    height: 100vh;
+    background: radial-gradient(circle, rgb(59, 119, 202) 0%, rgb(3, 27, 84) 100%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.centro{
+    width: 320px;
+    height: 300px;
+    display: block;
+}
+.centro > *{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+.logo{
+    height: 70px;
+}
+.logo img{
+    height: 90%;
+}
+.botao{
+    height: 50px;
+    margin-top: 20px;
+}
+.botao button{
+    height: 100%;
+    width: 70%;
+    background-color: rgb(154, 16, 16);
+    border-radius: 10px;
+    color: white;
+    border: 5px solid white;
+}
+button:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
