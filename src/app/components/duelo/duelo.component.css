@@ -1,0 +1,161 @@
+.container{
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.arena{
+    width: 50%;
+    height: 100%;
+}
+.blue{
+    background: radial-gradient(circle, rgb(59, 119, 202) 0%, rgb(3, 27, 84) 100%);
+    border-left: 1px solid white;
+}
+.red{
+    background: radial-gradient(circle, rgb(202, 59, 59) 0%, rgb(65, 5, 5) 100%);
+    border-right: 1px solid white;
+}
+.personagem{
+    width: 100%;
+    height: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.treinador{
+    height: 100%;
+    width: 30%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.treinador img{
+    height: 90%;
+}
+.informacoes{
+    width: 70%;
+    height: 100%;
+    display: block;
+}
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 70%;
+}
+.nome{
+    width: 90%;
+    height: 17%;
+    margin-top: 3%;
+    margin-right: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 30px;
+    font-size: 20px;
+    border: 3px solid black;
+}
+.embaralhar{
+    height: 100%;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.embaralhar img{
+    width: 40px;
+}
+.embaralhar img:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+}
+.pontuacao{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pontuacao img{
+    width: 70%;
+    filter: brightness(0.3);
+}
+.lendaria{
+    width: 40%;
+    margin-right: 5%;
+}
+.pontos{
+    background-color: white;
+    width: 7vw;
+    height: 7vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 5px solid #fbbc48;
+    font-size: 40px;
+}
+.deck{
+    width: 100%;
+    height: 65%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.deck img{
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    height: 46%;
+    margin-bottom: 1%;
+    margin-bottom: 1%;
+}
+.yourcards:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+    border: 1px solid white;
+    border-radius: 5%;
+}
+.reverse > *{
+    transform: rotate(180deg);
+}
+@media(max-width:1025px) {
+    .container{
+        display: block;
+    }
+    .arena{
+        width: 100%;
+        height: 50%;
+    }
+    .blue{
+        border-top: 1px solid white;
+        border-left: none;
+    }
+    .red{
+        border-bottom: 1px solid white;
+        border-right: none;
+    }
+    .pontos{
+        width: 15vw;
+        height: 15vw;
+        border-radius: 50%;
+        border: 3px solid #fbbc48;
+        font-size: 20px;
+    }
+    .pontuacao img{
+        width: 60%;
+    }
+    .deck img{
+        height: 46%;
+    }
+}
+@media(max-width:700px) {
+    .pontuacao img{
+        height: 100%;
+    }
+}
