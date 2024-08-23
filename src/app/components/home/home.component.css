@@ -1,8 +1,7 @@
 .container{
     width: 100%;
-    height: 100vh;
-    
-background: radial-gradient(circle, rgb(59, 119, 202) 0%, rgb(3, 27, 84) 100%);
+    height: 100vh; 
+    background: radial-gradient(circle, rgb(59, 119, 202) 0%, rgb(3, 27, 84) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
