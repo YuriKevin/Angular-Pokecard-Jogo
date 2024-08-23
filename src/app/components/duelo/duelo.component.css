@@ -212,6 +212,12 @@
 .versus img{
     width: 10vw;
 }
+
+.vertical{
+    width: 100%;
+    height: 100%;
+    display: flex;       
+}
 .jogada{
     width: 50%;
     height: 100%;
@@ -221,14 +227,27 @@
 }
 .jogada div{
     width: 18vw;
-    height: 25vw;
+    height: auto;
     background-color: #333;
     animation: brilho 1.5s infinite; 
-    background-image: url('../../../../public/assets/images/cards/card.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 4%;
+}
+.fade-animacao{
+    animation: fadeIn 0.5s forwards;
+}
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+}
+.jogada div img{
+    width: 100%;
 }
 .cartaPerdedora div{
     background-image:none;
@@ -306,12 +325,6 @@
         opacity: 1;
     }
 }
-.vertical{
-    width: 100%;
-    height: 100%;
-    display: flex;       
-}
-
 .termino-partida{
     width: 100%;
     height: 100%;
@@ -355,7 +368,7 @@
 }
 .recompensa-titulo{
     width: 100%;
-    height: 30%;
+    height: 10%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -369,7 +382,26 @@
     justify-content: center;
 }
 .recompensa-item img{
-    height: 95%;
+    height: 100%;
+}
+.abrir-recompensa{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20%;
+}
+.abrir-recompensa button{
+    width: 80%;
+    height: 70%;
+    background-color: rgb(59, 119, 202);
+    color: white;
+    border-radius: 10px;
+    border: 1px solid white;
+}
+.abrir-recompensa button:hover{
+    transform: scale(1.1);
+    cursor: pointer;
 }
 .voltar{
     width: 100%;
@@ -553,7 +585,7 @@
     }
     .jogada div{
         width: 36vw;
-        height: 50vw;
+        height: auto;
     }
     .vertical{
         display: block
