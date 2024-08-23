@@ -90,7 +90,8 @@
     margin-right: 5%;
 }
 .pontos{
-    background-color: white;
+    background-color: rgb(0, 0, 0, 0.3);
+    color: white;
     width: 7vw;
     height: 7vw;
     display: flex;
@@ -124,6 +125,396 @@
 .reverse > *{
     transform: rotate(180deg);
 }
+
+.background-black{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.8);
+    display: flex;
+}
+.inicio-personagem{
+    width: 50%;
+    height: 100%;
+    background-color: aliceblue;
+    display: block;
+}
+.animacao-esquerda{
+    animation: entrarDaEsquerda 1s ease-out;
+}
+@keyframes entrarDaEsquerda {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+.animacao-direita{
+    animation: entrarDaDireita 1s ease-out;
+}
+@keyframes entrarDaDireita {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+.inicio-nome{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.inicio-nome div{
+    width: 80%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 30px;
+    font-size: 20px;
+    border: 3px solid black;
+}
+.inicio-treinador{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.espelhado{
+    transform: scaleX(-1);
+}
+.inicio-treinador img{
+    height: 80%;
+}
+.versus{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 1000;
+}
+.versus img{
+    width: 10vw;
+}
+.jogada{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.jogada div{
+    width: 18vw;
+    height: 25vw;
+    background-color: #333;
+    animation: brilho 1.5s infinite; 
+    background-image: url('../../../../public/assets/images/cards/card.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 4%;
+}
+.cartaPerdedora div{
+    background-image:none;
+    background-color: rgb(248, 59, 59);
+}
+.cartaVencedora div{
+    background-image:none;
+    background-color: rgb(7, 149, 71);
+}
+@keyframes brilho {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+        text-shadow: 0 0 20px rgba(255, 255, 255, 1);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+}
+@keyframes brilhoCartaVencedora {
+    0% {
+        box-shadow: 0 0 5px rgba(7, 149, 71, 0.5);
+        text-shadow: 0 0 5px rgba(7, 149, 71, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(7, 149, 71, 1);
+        text-shadow: 0 0 20px rgba(7, 149, 71, 1);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(7, 149, 71, 0.5);
+        text-shadow: 0 0 5px rgba(7, 149, 71, 0.5);
+    }
+}
+@keyframes brilhoCartaPerdedora {
+    0% {
+        box-shadow: 0 0 5px rgba(248, 59, 59, 0.5);
+        text-shadow: 0 0 5px rgba(248, 59, 59, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(248, 59, 59, 1);
+        text-shadow: 0 0 20px rgba(248, 59, 59, 1);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(248, 59, 59, 0.5);
+        text-shadow: 0 0 5px rgba(248, 59, 59, 0.5);
+    }
+}
+.entrarDeCima{
+    animation: entrarDeCima 1s ease-out;
+}
+@keyframes entrarDeCima {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+.entrarDeBaixo{
+    animation: entrarDeBaixo 1s ease-out;
+}
+@keyframes entrarDeBaixo {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+.vertical{
+    width: 100%;
+    height: 100%;
+    display: flex;       
+}
+
+.termino-partida{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.quadrado{
+    height: 300px;
+    width: 300px;
+    animation: brilho 1.5s infinite; 
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.venceu{
+    animation: brilhoCartaVencedora 1.5s infinite;
+}
+.perdeu{
+    animation: brilhoCartaPerdedora 1.5s infinite;
+}
+.termino-titulo{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: white;
+}
+.venceu .termino-titulo{
+    background-color: rgb(1, 74, 46);
+}
+.perdeu .termino-titulo{
+    background-color: rgb(122, 17, 17);
+}
+.recompensa{
+    width: 100%;
+    height: 80%;
+    display: block;
+}
+.recompensa-titulo{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+.recompensa-item{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.recompensa-item img{
+    height: 95%;
+}
+.voltar{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.voltar button{
+    width: 70%;
+    height: 17%;
+    background-color: rgb(122, 17, 17);
+    color: white;
+    border-radius: 15px;
+}
+.voltar button:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+}
+.abrir-carta{
+    width: 100%;
+    height: 100%;
+    animation: preencherCircular 0.4s forwards;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.abrir-carta img{
+    width: 70%;
+    max-width: 400px;
+    animation: entrarDeCima 4s ease-out, brilhoCartaNova 1.5s infinite;
+    border-radius: 20px;
+}
+.abrir-carta-voltar{
+    position: absolute;
+    bottom: 0;
+    height: 10%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.abrir-carta-voltar button{
+    background-color: #01490a;
+    color: white;
+    width: 200px;
+    height: 30px;
+    border: 3px solid white;
+    border-radius: 10px;
+}
+.abrir-carta-voltar button:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+@keyframes brilhoCartaNova {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 242, 0, 0.7);
+        text-shadow: 0 0 10px rgba(255, 242, 0, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(255, 242, 0, 1);
+        text-shadow: 0 0 40px rgba(255, 242, 0, 1);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(255, 242, 0, 0.7);
+        text-shadow: 0 0 10px rgba(255, 242, 0, 0.7);
+    }
+}
+@keyframes preencherCircular {
+    100% {
+        background: radial-gradient(circle, white 0%, transparent 100%);
+    }
+    95% {
+        background: radial-gradient(circle, white 0%, transparent 95%);
+    }
+    90% {
+        background: radial-gradient(circle, white 0%, transparent 90%);
+    }
+    85% {
+        background: radial-gradient(circle, white 0%, transparent 85%);
+    }
+    80% {
+        background: radial-gradient(circle, white 0%, transparent 80%);
+    }
+    75% {
+        background: radial-gradient(circle, white 0%, transparent 75%);
+    }
+    70% {
+        background: radial-gradient(circle, white 0%, transparent 70%);
+    }
+    65% {
+        background: radial-gradient(circle, white 0%, transparent 65%);
+    }
+    60% {
+        background: radial-gradient(circle, white 0%, transparent 60%);
+    }
+    55% {
+        background: radial-gradient(circle, white 0%, transparent 55%);
+    }
+    50% {
+        background: radial-gradient(circle, white 0%, transparent 50%);
+    }
+    45% {
+        background: radial-gradient(circle, white 0%, transparent 45%);
+    }
+    40% {
+        background: radial-gradient(circle, white 0%, transparent 40%);
+    }
+    35% {
+        background: radial-gradient(circle, white 0%, transparent 35%);
+    }
+    30% {
+        background: radial-gradient(circle, white 0%, transparent 30%);
+    }
+    25% {
+        background: radial-gradient(circle, white 0%, transparent 25%);
+    }
+    20% {
+        background: radial-gradient(circle, white 0%, transparent 20%);
+    }
+    15% {
+        background: radial-gradient(circle, white 0%, transparent 15%);
+    }
+    10% {
+        background: radial-gradient(circle, white 0%, transparent 10%);
+    }
+    5% {
+        background: radial-gradient(circle, white 0%, transparent 5%);
+    }
+    0% {
+        background: radial-gradient(circle, white 0%, transparent 0%);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
 @media(max-width:1025px) {
     .container{
         display: block;
@@ -153,9 +544,35 @@
     .deck img{
         height: 46%;
     }
+    .jogada{
+        width: 100%;
+        height: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .jogada div{
+        width: 36vw;
+        height: 50vw;
+    }
+    .vertical{
+        display: block
+    }
 }
 @media(max-width:700px) {
     .pontuacao img{
         height: 100%;
     }
+    .inicio-nome div{
+        width: 95%;
+        height: 40%;
+        font-size: 15px;
+    }
+    .inicio-treinador img{
+        width: 95%;
+    }
+    .versus img{
+        width: 15vw;
+    }
+    
 }
