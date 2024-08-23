@@ -55,3 +55,76 @@
         </div>
     </div>
 </div>
+<div class="background-black" *ngIf="inicioDiv || jogadaDiv || terminoPartida ||abrirCarta">
+
+
+
+    <div class="inicio-personagem red animacao-esquerda" *ngIf="inicioDiv">
+        <div class="inicio-nome">
+            <div>
+                <h1>Player 1</h1>
+            </div>
+        </div>
+        <div class="inicio-treinador">
+            <img src="assets/images/personagens/ash.png" alt="Treinador">
+        </div>
+    </div>
+    <div class="versus" *ngIf="inicioDiv">
+        <img  src="assets/images/vs.png" alt="Versus">
+    </div>
+    <div class="inicio-personagem blue animacao-direita" *ngIf="inicioDiv">
+        <div class="inicio-nome">
+            <div>
+                <h1>Player 1</h1>
+            </div>
+        </div>
+        <div class="inicio-treinador espelhado">
+            <img src="assets/images/personagens/ash.png" alt="Treinador">
+        </div>
+    </div>
+
+    <div class="vertical" *ngIf="jogadaDiv">
+        <div class="jogada entrarDeCima">
+            <div>
+                
+            </div>
+        </div>
+        <div class="jogada entrarDeBaixo" *ngIf="jogadaDiv">
+            <div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="termino-partida" *ngIf="terminoPartida">
+        <div class="quadrado venceu" *ngIf="venceu">
+            <div class="termino-titulo">
+                <h1>Você venceu!</h1>
+            </div>
+            <div class="recompensa">
+                <div class="recompensa-titulo">
+                    <p>Recompensas</p>
+                </div>
+                <div class="recompensa-item">
+                    <img class="yourcards" src="assets/images/cards/card.png" alt="Card">
+                </div>
+            </div>
+        </div>
+        <div class="quadrado perdeu" *ngIf="perdeu">
+            <div class="termino-titulo">
+                <h1>Você perdeu!</h1>
+            </div>
+            <div class="voltar">
+                <button>Voltar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="abrir-carta" *ngIf="abrirCarta">
+        <img src="assets/images/cards/card.png" alt="">
+        <div class="abrir-carta-voltar">
+            <button>Voltar</button>
+        </div>
+    </div>
+
+</div>
