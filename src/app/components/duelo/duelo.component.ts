@@ -15,6 +15,7 @@ export class DueloComponent {
   terminoPartida:boolean = false;
   venceu:boolean = false;
   perdeu:boolean = false;
-  abrirCarta:boolean = true;
+  abrirCarta:boolean = false;
+
 
 }
