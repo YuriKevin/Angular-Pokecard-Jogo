@@ -1317,17 +1317,17 @@ export class CardService {
     let num = getRandomInt(1000);
     if(num>990){
       const card:Card = this.gerarCartaLendaria();
-      this.usuarioService.usuario.deck.push(card);
+      this.usuarioService.addNovaCarta(card);
       return card;
     }
     else if(num>500){
       const card:Card = this.gerarCartaRara();
-      this.usuarioService.usuario.deck.push(card);
+      this.usuarioService.addNovaCarta(card);
       return card;
     }
     else{
       const card:Card = this.gerarCartaComum();
-      this.usuarioService.usuario.deck.push(card);
+      this.usuarioService.addNovaCarta(card);
       return card;
     }
   }
