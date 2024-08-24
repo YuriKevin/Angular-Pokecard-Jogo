@@ -1,13 +1,18 @@
 import { Injectable } from '@angular/core';
-import { Deck } from '../model/deck';
 import { Card } from '../model/card';
+import { UsuarioService } from './usuario.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CardService {
   cards:Card[] = [];
-  constructor() { 
+  deckInimigo:Card[] = []
+  controleDeIndicesUsados:number[] = [];
+
+
+  constructor(private usuarioService:UsuarioService) { 
+    
     //Elétricos
     const card1: Card = {
       id: 1,
@@ -1277,10 +1282,105 @@ export class CardService {
     };
 
 
-    this.cards.push();
+    this.cards.push(
+      card1, card2, card3, card4, card5, card6, card7, card8, card9, card10,
+      card11, card12, card13, card14, card15, card16, card17, card18, card19, card20,
+      card21, card22, card23, card24, card25, card26, card27, card28, card29, card30,
+      card31, card32, card33, card34, card35, card36, card37, card38, card39, card40,
+      card41, card42, card43, card44, card45, card46, card47, card48, card49, card50,
+      card51, card52, card53, card54, card55, card56, card57, card58, card59, card60,
+      card61, card62, card63, card64, card65, card66, card67, card68, card69, card70,
+      card71, card72, card73, card74, card75, card76, card77, card78, card79, card80,
+      card81, card82, card83, card84, card85, card86, card87, card88, card89, card90,
+      card91, card92, card93, card94, card95, card96, card97, card98, card99, card100,
+      card101, card102, card103, card104, card105, card106, card107, card108, card109, card110,
+      card111, card112, card113, card114, card115, card116, card117, card118, card119, card120,
+      card121, card122, card123, card124, card125, card126, card127, card128, card129, card130,
+      card131, card132, card133, card134, card135, card136, card137, card138, card139, card140,
+      card141, card142, card143, card144, card145, card146, card147, card148, card149, card150,
+      card151, card152, card153, card154, card155
+    );
+
+    if(!(this.usuarioService.getUsuario().cards.length>0)){
+      this.usuarioService.setDeck(this.deckInicial());
+    }
+    
   }
 
   deckInicial(){
-    
+    const cartasFiltradas = this.cards.filter(card => card.raridade == "Comum");
+    return this.gerarCartasAleatorias(cartasFiltradas);
   }
+
+  novaCarta():Card{
+    const getRandomInt = (max: number) => Math.floor(Math.random() * max);
+    let num = getRandomInt(1000);
+    if(num>990){
+      const card:Card = this.gerarCartaLendaria();
+      this.usuarioService.usuario.deck.push(card);
+      return card;
+    }
+    else if(num>500){
+      const card:Card = this.gerarCartaRara();
+      this.usuarioService.usuario.deck.push(card);
+      return card;
+    }
+    else{
+      const card:Card = this.gerarCartaComum();
+      this.usuarioService.usuario.deck.push(card);
+      return card;
+    }
+  }
+  gerarCartaLendaria():Card{
+    const cartasFiltradas = this.cards.filter(card => card.raridade == "Lendária");
+    return this.gerarUmaCartaAleatoria(cartasFiltradas);
+  }
+  gerarCartaRara():Card{
+    const cartasFiltradas = this.cards.filter(card => card.raridade == "Rara");
+    return this.gerarUmaCartaAleatoria(cartasFiltradas);
+  }
+  gerarCartaComum():Card{
+    const cartasFiltradas = this.cards.filter(card => card.raridade == "Comum");
+    return this.gerarUmaCartaAleatoria(cartasFiltradas);
+  }
+  deckFacilAleatorio(): Card[] {
+    const cartasFiltradas = this.cards.filter(card => card.forca < 100);
+    return this.gerarCartasAleatorias(cartasFiltradas);
+  }
+
+  gerarCartasAleatorias(cards:Card[]): Card[]{
+    const getRandomInt = (max: number) => Math.floor(Math.random() * max);
+
+    this.deckInimigo = [];
+    this.controleDeIndicesUsados = [];
+
+    while (this.deckInimigo.length < 20) {
+      let num = getRandomInt(cards.length);
+
+      if (!this.controleDeIndicesUsados.includes(num)) {
+        this.controleDeIndicesUsados.push(num);
+        this.deckInimigo.push(cards[num]);
+        console.log(cards[num]);
+      }
+    }
+    return this.deckInimigo;
+  }
+
+  gerarUmaCartaAleatoria(cards:Card[]): Card{
+    const getRandomInt = (max: number) => Math.floor(Math.random() * max);
+
+    let num = getRandomInt(cards.length);
+    let numeroVezesWhile = 0;
+    while(true){
+      if (!this.usuarioService.getUsuario().cards.some(carta => carta.id === cards[num].id)) {
+        this.usuarioService.addNovaCarta(cards[num]);
+        return cards[num];
+      }
+      else if(numeroVezesWhile==100){
+        return cards[num];
+      }
+      numeroVezesWhile++
+    }
+  }
+
 }
