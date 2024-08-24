@@ -16,10 +16,10 @@
 <div class="container">
     <div class="centro">
         <div class="botao">
-            <button>Deck</button>
+            <button [routerLink]="['/deck']">Deck</button>
         </div>
         <div class="botao">
-            <button>Todas as cartas</button>
+            <button [routerLink]="['/cartas']">Todas as cartas</button>
         </div>
         <div class="proxima-batalha">
             <div class="batalha-titulo">
@@ -32,7 +32,7 @@
                 <p>Dica: <br> Blaine costuma utilizar muitas cartas de fogo...</p>
             </div>
             <div class="batalha-jogar">
-                <button>Jogar</button>
+                <button [routerLink]="['/duelo']">Jogar</button>
             </div>
         </div>
     </div>
