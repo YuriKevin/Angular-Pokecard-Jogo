@@ -2,16 +2,16 @@
     <div class="arena red">
         <div class="personagem">
             <div class="treinador">
-                <img src="assets/images/personagens/ash.png" alt="Treinador">
+                <img src="{{ caminhoImagemOponente }}" alt="Treinador">
             </div>
             <div class="informacoes">
-                <div class="nome"><p>Player 1</p></div>
+                <div class="nome"><p>{{oponente.nome}}</p></div>
                 <div class="flex">
                     <div class="embaralhar">
                         
                     </div>
                     <div class="pontuacao">
-                        <div class="pontos"><p>+7</p></div>
+                        <div class="pontos"><p>{{pontosOponente}}</p></div>
                     </div>
                 </div>
             </div>
@@ -27,19 +27,14 @@
     </div>
     <div class="arena blue">
         <div class="deck">
-            <img class="yourcards" src="assets/images/cards/card.png" alt="Card">
-            <img class="yourcards" src="assets/images/cards/card.png" alt="Card">
-            <img class="yourcards" src="assets/images/cards/card.png" alt="Card">
-            <img class="yourcards" src="assets/images/cards/card.png" alt="Card">
-            <img class="yourcards" src="assets/images/cards/card.png" alt="Card">
-            <img class="yourcards" src="assets/images/cards/card.png" alt="Card">
+            <img *ngFor="let carta of cartasDisponiveis" class="yourcards" [src]="'assets/images/cards/' + carta.imagem" alt="Card"(click)="cartaEscolhida(carta)">
         </div>
         <div class="personagem">
             <div class="treinador">
-                <img src="assets/images/personagens/ash.png" alt="Treinador">
+                <img src="{{ caminhoImagemUsuario }}" alt="Treinador">
             </div>
             <div class="informacoes">
-                <div class="nome"><p>Player 1</p></div>
+                <div class="nome"><p>{{usuario.nome}}</p></div>
                 <div class="flex">
                     <div class="embaralhar">
                         <div>
@@ -48,25 +43,25 @@
                     </div>
                     <div class="pontuacao">
                         <div class="lendaria"><img class="yourcards" src="assets/images/cards/legendary.gif" alt="Card Lendário"></div>
-                        <div class="pontos"><p>+7</p></div>
+                        <div class="pontos"><p>{{pontosUsuario}}</p></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="background-black" *ngIf="inicioDiv || jogadaDiv || terminoPartida ||abrirCarta">
+<div class="background-black" *ngIf="inicioDiv || jogadaDiv || terminoPartida ||abrirCartaDiv">
 
 
 
     <div class="inicio-personagem red animacao-esquerda" *ngIf="inicioDiv">
         <div class="inicio-nome">
             <div>
-                <h1>Player 1</h1>
+                <h1>{{oponente.nome}}</h1>
             </div>
         </div>
         <div class="inicio-treinador">
-            <img src="assets/images/personagens/ash.png" alt="Treinador">
+            <img src="{{caminhoImagemOponente}}" alt="Treinador">
         </div>
     </div>
     <div class="versus" *ngIf="inicioDiv">
@@ -75,23 +70,23 @@
     <div class="inicio-personagem blue animacao-direita" *ngIf="inicioDiv">
         <div class="inicio-nome">
             <div>
-                <h1>Player 1</h1>
+                <h1>{{usuario.nome}}</h1>
             </div>
         </div>
         <div class="inicio-treinador espelhado">
-            <img src="assets/images/personagens/ash.png" alt="Treinador">
+            <img src="{{caminhoImagemUsuario}}" alt="Treinador">
         </div>
     </div>
 
     <div class="vertical" *ngIf="jogadaDiv">
         <div class="jogada entrarDeCima">
-            <div>
-                <img src="assets/images/cards/card.png" alt="">
+            <div class="brilho-branco" id="cardOponente">
+                <img src="{{caminhoCardOponente}}" alt="Card">
             </div>
         </div>
-        <div class="jogada entrarDeBaixo" *ngIf="jogadaDiv">
-            <div>
-                <img src="assets/images/cards/card.png" alt="">
+        <div class="jogada entrarDeBaixo brilho-branco" >
+            <div class="brilho-branco" id="cardUsuario">
+                <img src="{{caminhoCardUsuario}}" alt="Card">
             </div>
         </div>
     </div>
@@ -109,7 +104,7 @@
                     <img class="yourcards" src="assets/images/cards/booster.png" alt="Card">
                 </div>
                 <div class="abrir-recompensa">
-                    <button>Abrir</button>
+                    <button (click)="abrirCarta()">Abrir</button>
                 </div>
             </div>
         </div>
@@ -123,11 +118,12 @@
         </div>
     </div>
 
-    <div class="abrir-carta" *ngIf="abrirCarta">
-        <img src="assets/images/cards/card.png" alt="">
+    <div class="abrir-carta" *ngIf="abrirCartaDiv">
+        <img src="{{novaCartaCaminho}}" alt="">
         <div class="abrir-carta-voltar">
-            <button>Voltar</button>
+            <button [routerLink]="['/campanha']">>Voltar</button>
         </div>
     </div>
 
 </div>
+<div class="fechar-background" (click)="fecharBackground()" *ngIf="fecharBackgroundDiv"></div>
