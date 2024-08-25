@@ -1,1 +1,17 @@
-<p>deck works!</p>
+<app-header></app-header>
+<div class="container">
+    <div class="block">
+        <div class="titulo">
+            <h1>Clique na carta para remover do deck</h1>
+        </div>
+        <div class="flex">
+            <img *ngFor="let carta of deck"  [src]="caminhoImagem + carta.imagem"  alt="">
+        </div>
+        <div class="titulo">
+            <h1>Clique na carta para adicionar do deck</h1>
+        </div>
+        <div class="flex">
+            <img *ngFor="let carta of cartas"  [src]="caminhoImagem + carta.imagem"  alt="">
+        </div>
+    </div>
+</div>
