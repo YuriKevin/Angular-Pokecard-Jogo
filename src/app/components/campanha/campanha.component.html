@@ -23,13 +23,13 @@
         </div>
         <div class="proxima-batalha">
             <div class="batalha-titulo">
-                <h1>Blaine</h1>
+                <h1>{{proximoOponente.nome}}</h1>
             </div>
             <div class="batalha-imagem">
-                <img src="assets/images/personagens/ash.png" alt="">
+                <img src="{{caminhoImagemOponente}}" alt="">
             </div>
             <div class="batalha-descricao">
-                <p>Dica: <br> Blaine costuma utilizar muitas cartas de fogo...</p>
+                <p>Dica: <br>{{proximoOponente.dica}}</p>
             </div>
             <div class="batalha-jogar">
                 <button [routerLink]="['/duelo']">Jogar</button>
