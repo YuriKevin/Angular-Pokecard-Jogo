@@ -17,6 +17,9 @@ export class CampanhaComponent implements OnInit{
   dialogoDiv:boolean = false;
   proximoOponente!:Treinador;
   caminhoImagemOponente:string = '';
+  mensagem:string='';
+  jogarBotao!:boolean;
+  incompletoBotao!:boolean;
 
   constructor(private usuarioService:UsuarioService, private batalhaService:BatalhaService){}
 
@@ -25,6 +28,12 @@ export class CampanhaComponent implements OnInit{
       this.proximoOponente = this.batalhaService.batalhar(numeroBatalhaAtual);
       const caminhoBaseImagem = 'assets/images/personagens/';
       this.caminhoImagemOponente = caminhoBaseImagem+this.proximoOponente.imagem;
+      if(this.usuarioService.getTamanhoDeck()>19){
+        this.jogarBotao = true;
+      }
+      else{
+        this.incompletoBotao = true;
+      }
   }
 
 }
