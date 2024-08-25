@@ -15,7 +15,11 @@ import { HeaderComponent } from '../header/header.component';
 export class DeckComponent implements OnInit{
   deck!:Card[];
   cartas!:Card[];
+  cartasFiltradas:Card[] = [];
   caminhoImagem:string = 'assets/images/cards/';
+  mensagem:string='';
+  dialogoDiv:boolean=false;
+
 
   constructor(private usuarioService:UsuarioService){}
 
@@ -23,6 +27,36 @@ export class DeckComponent implements OnInit{
   ngOnInit(): void {
       this.deck = this.usuarioService.usuario.deck;
       this.cartas = this.usuarioService.usuario.cards;
+      
+      this.cartas.forEach(carta => {
+        const indexCartaRemovida = this.deck.findIndex(card => card.id === carta.id);
+        if(indexCartaRemovida==-1){
+          this.cartasFiltradas.push(carta);
+        }
+      });
+  }
+
+  removerCartaDeck(carta:Card){
+    const indexCartaRemovida = this.deck.findIndex(card => card.id === carta.id);
+    this.deck.splice(indexCartaRemovida, 1);
+    this.cartasFiltradas.push(carta);
+  }
+  adicionarCartaDeck(carta:Card){
+    const indexCartaAdicionada = this.deck.findIndex(card => card.id === carta.id);
+    if(indexCartaAdicionada==-1){
+      if(this.deck.length<20){
+        this.deck.push(carta);
+        const indexCartaAdicionada2 = this.cartasFiltradas.findIndex(card => card.id === carta.id);
+        this.cartasFiltradas.splice(indexCartaAdicionada2, 1);
+      }
+      else if(this.deck.length>=20){
+        this.mensagem = 'Deck completo, para adicionar uma nova carta antes é necessário remover alguma.';
+        this.dialogoDiv=true;
+      }
+    }
+  }
+  fecharDialogo(){
+    this.dialogoDiv = false;
   }
 
 }
