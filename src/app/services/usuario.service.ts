@@ -32,4 +32,7 @@ export class UsuarioService {
       this.usuario?.cards.push(card);
     }
   }
+  getTamanhoDeck(){
+    return this.usuario.deck.length;
+  }
 }
