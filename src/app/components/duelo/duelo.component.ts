@@ -16,7 +16,7 @@ import { RouterModule } from '@angular/router';
   styleUrl: './duelo.component.css'
 })
 export class DueloComponent implements OnInit{
-  inicioDiv:boolean = false;
+  inicioDiv:boolean = true;
   jogadaDiv:boolean = false;
   fecharBackgroundDiv:boolean = false;
   mostrarCartas:boolean = false;
@@ -63,7 +63,12 @@ export class DueloComponent implements OnInit{
       const nomeImagem = this.oponente.imagem || 'shadow.png';
       this.caminhoImagemOponente = `${caminhoBase}${nomeImagem}`;
       this.caminhoImagemUsuario = `${caminhoBase}${this.usuario.imagem}`;
+
+      setTimeout(( ) => {
+        this.inicioDiv = false
+      }, 4000)
   }
+  
 
   cartaEscolhida(cartaEscolhida:Card){
     if(this.pontosOponente == 7 || this.pontosUsuario ==7){
@@ -97,6 +102,7 @@ export class DueloComponent implements OnInit{
             this.jogadaDiv=false;
             this.terminoPartida=true;
             this.venceu=true;
+            this.usuario.batalhaAtual+=1;
           }, 3000);
         }
       } 
@@ -131,10 +137,10 @@ export class DueloComponent implements OnInit{
       }
       else{
         
-        if(this.vantagem[cartaOponente.elemento] ? this.vantagem[cartaOponente.elemento].includes(cartaUsuario.elemento) : false){
+        if((this.vantagem[cartaOponente.elemento] ? this.vantagem[cartaOponente.elemento].includes(cartaUsuario.elemento) : false)){
           return true;
         }
-        else if(this.vantagem[cartaUsuario.elemento] ? this.vantagem[cartaUsuario.elemento].includes(cartaOponente.elemento) : false){
+        else if((this.vantagem[cartaUsuario.elemento] ? this.vantagem[cartaUsuario.elemento].includes(cartaOponente.elemento) : false)){
           return true;
         }
         else{
