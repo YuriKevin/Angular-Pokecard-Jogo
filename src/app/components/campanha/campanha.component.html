@@ -5,7 +5,7 @@
             <button>Continuar</button>
         </div>
         <div class="dialogo-conversa">
-            <p>Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! Olá! </p>
+            <p>{{this.mensagem}}</p>
         </div>
         <div class="dialogo-personagem">
             <img src="assets/images/personagens/professor.png" alt="">
@@ -32,7 +32,8 @@
                 <p>Dica: <br>{{proximoOponente.dica}}</p>
             </div>
             <div class="batalha-jogar">
-                <button [routerLink]="['/duelo']">Jogar</button>
+                <button *ngIf="jogarBotao" [routerLink]="['/duelo']">Jogar</button>
+                <button *ngIf="incompletoBotao" [routerLink]="['/deck']">Deck Incompleto</button>
             </div>
         </div>
     </div>
