@@ -5,13 +5,26 @@
             <h1>Clique na carta para remover do deck</h1>
         </div>
         <div class="flex">
-            <img *ngFor="let carta of deck"  [src]="caminhoImagem + carta.imagem"  alt="">
+            <img *ngFor="let carta of deck" (click)="removerCartaDeck(carta)" [src]="caminhoImagem + carta.imagem"  alt="">
         </div>
         <div class="titulo">
-            <h1>Clique na carta para adicionar do deck</h1>
+            <h1>Clique na carta para adicionar ao deck</h1>
         </div>
         <div class="flex">
-            <img *ngFor="let carta of cartas"  [src]="caminhoImagem + carta.imagem"  alt="">
+            <img *ngFor="let carta of cartasFiltradas" (click)="adicionarCartaDeck(carta)" [src]="caminhoImagem + carta.imagem"  alt="">
+        </div>
+    </div>
+</div>
+<div class="dialogo" *ngIf="dialogoDiv">
+    <div class="dialogo-centro">
+        <div class="dialogo-continuar" *ngIf="dialogoDiv">
+            <button (click)="fecharDialogo()">Continuar</button>
+        </div>
+        <div class="dialogo-conversa">
+            <p>{{this.mensagem}}</p>
+        </div>
+        <div class="dialogo-personagem">
+            <img src="assets/images/personagens/professor.png" alt="">
         </div>
     </div>
 </div>
