@@ -1,1 +1,11 @@
-<p>cartas works!</p>
+<app-header></app-header>
+<div class="container">
+    <div class="block">
+        <div class="titulo">
+            <h1>Todas as cartas</h1>
+        </div>
+        <div class="flex">
+            <img *ngFor="let carta of cartasEstaoNoDeck"  [src]="caminhoImagem + carta.card.imagem" [ngClass]="{'nao-possui': !carta.contem}"  alt="Carta">
+        </div>
+    </div>
+</div>
