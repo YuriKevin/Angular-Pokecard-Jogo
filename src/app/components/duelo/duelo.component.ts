@@ -6,7 +6,7 @@ import { UsuarioService } from '../../services/usuario.service';
 import { Card } from '../../model/card';
 import { Usuario } from '../../model/usuario';
 import { CardService } from '../../services/card.service';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-duelo',
@@ -51,11 +51,14 @@ export class DueloComponent implements OnInit{
     Voador: ['Lutador', 'Grama']
   };
 
-  constructor(private batalhaService:BatalhaService, private usuarioService:UsuarioService, private cardService:CardService, private el: ElementRef){
-    
+  constructor(private batalhaService:BatalhaService, private usuarioService:UsuarioService, private cardService:CardService, private el: ElementRef, private router: Router){
+    this.router.navigate(['/campanha']);
   }
 
   ngOnInit(): void {
+    if(this.usuarioService.getTamanhoDeck()<20){
+
+    }
       this.usuario = this.usuarioService.getUsuario();
       this.cartasDisponiveis = this.usuario.deck.slice(0, 6);
       this.oponente = this.batalhaService.batalhar(this.usuario.batalhaAtual);
