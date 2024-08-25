@@ -1302,7 +1302,10 @@ export class CardService {
     );
 
     if(!(this.usuarioService.getUsuario().cards.length>0)){
-      this.usuarioService.setDeck(this.deckInicial());
+      this.usuarioService.getUsuario().cards = this.deckInicial();
+      this.usuarioService.getUsuario().cards.forEach(carta => {
+        this.usuarioService.getUsuario().deck.push(carta);
+      });
     }
     
   }
