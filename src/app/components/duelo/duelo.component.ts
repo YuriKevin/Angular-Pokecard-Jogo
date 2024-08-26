@@ -78,10 +78,10 @@ export class DueloComponent implements OnInit{
       return;
     }
     this.jogadaDiv = true
-    if(this.indiceCartasDisponiveis>20){
+    if(this.indiceCartasDisponiveis > this.usuario.deck.length){
       this.indiceCartasOponente = 0;
     }
-    if(this.indiceCartasUsuario>20){
+    if(this.indiceCartasUsuario > this.oponente.deck.length){
       this.indiceCartasUsuario = 0;
     }
     this.cardOponente = this.oponente.deck[this.indiceCartasOponente];
