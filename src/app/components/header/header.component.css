@@ -36,6 +36,7 @@ header > *{
 }
 .navegacao img{
     height: 80%;
+    cursor: pointer;
 }
 a {
     text-decoration: none;
