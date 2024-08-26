@@ -1,0 +1,124 @@
+<app-header></app-header>
+<div class="container">
+
+    <div class="div-flex">
+        <div class="alternar">
+            <button (click)="regras()">Regras</button>
+            <button (click)="elementos()">Elementos</button>
+        </div>
+    </div>
+
+    <div class="div-flex" *ngIf="regrasDiv">
+        <div class="centro">
+            <div class="titulo">
+                <h1>Regras de duelo</h1>
+            </div>
+            <div class="informacao">
+                <p>1. Uma carta lendária só pode ser derrotada por outra lendária.</p>
+            </div>
+            <div class="informacao">
+                <p>2. O primeiro critério pra definir qual carta vencerá é o elemento (veja a tabela elemental no guia).</p>
+            </div>
+            <div class="informacao">
+                <p>3. Em casos onde os elementos não são efetivos um ao outro, a força da carta será quem define o vencedor.</p>
+            </div>
+            <div class="informacao">
+                <p>4. O primeiro jogador a alcançar 7 pontos vence o duelo.</p>
+            </div>
+            <div class="informacao">
+                <p>5. No término da partida, em caso de vitória, o jogador receberá um pacote contendo uma carta.</p>
+            </div>
+            <div class="informacao">
+                <p>6. Chances de obter cartas: 50% comum / 49% rara / 1% lendária.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="div-flex" *ngIf="elementosDiv">
+        <div class="centro">
+            <div class="titulo">
+                <h1>Tabela de Efetividade Elemental</h1>
+            </div>
+                <div class="elemento">
+                    <img src="assets/images/elementos/fogo.png" alt="">
+                    <div class="efetivo-char">
+                        <h1>></h1>
+                    </div>
+                    <img src="assets/images/elementos/grama.png" alt="">
+                    <img src="assets/images/elementos/metal.png" alt="">
+                </div>
+                
+                <div class="elemento">
+                    <img src="assets/images/elementos/eletrico.png" alt="">
+                    <div class="efetivo-char">
+                        <h1>></h1>
+                    </div>
+                    <img src="assets/images/elementos/agua.png" alt="">
+                    <img src="assets/images/elementos/voador.png" alt="">
+                </div>
+
+                <div class="elemento">
+                    <img src="assets/images/elementos/grama.png" alt="">
+                    <div class="efetivo-char">
+                        <h1>></h1>
+                    </div>
+                    <img src="assets/images/elementos/eletrico.png" alt="">
+                    <img src="assets/images/elementos/agua.png" alt="">
+                </div>
+
+                <div class="elemento">
+                    <img src="assets/images/elementos/agua.png" alt="">
+                    <div class="efetivo-char">
+                        <h1>></h1>
+                    </div>
+                    <img src="assets/images/elementos/voador.png" alt="">
+                    <img src="assets/images/elementos/fogo.png" alt="">
+                </div>
+
+                <div class="elemento">
+                    <img src="assets/images/elementos/psiquico.png" alt="">
+                    <div class="efetivo-char">
+                        <h1>></h1>
+                    </div>
+                    <img src="assets/images/elementos/fogo.png" alt="">
+                    <img src="assets/images/elementos/lutador.png" alt="">
+                </div>
+
+                <div class="elemento">
+                    <img src="assets/images/elementos/lutador.png" alt="">
+                    <div class="efetivo-char">
+                        <h1>></h1>
+                    </div>
+                    <img src="assets/images/elementos/metal.png" alt="">
+                    <img src="assets/images/elementos/eletrico.png" alt="">
+                </div>
+
+                <div class="elemento">
+                    <img src="assets/images/elementos/metal.png" alt="">
+                    <div class="efetivo-char">
+                        <h1>></h1>
+                    </div>
+                    <img src="assets/images/elementos/sombrio.png" alt="">
+                    <img src="assets/images/elementos/psiquico.png" alt="">
+                </div>
+
+                <div class="elemento">
+                    <img src="assets/images/elementos/voador.png" alt="">
+                    <div class="efetivo-char">
+                        <h1>></h1>
+                    </div>
+                    <img src="assets/images/elementos/lutador.png" alt="">
+                    <img src="assets/images/elementos/grama.png" alt="">
+                </div>
+
+                <div class="elemento">
+                    <img src="assets/images/elementos/sombrio.png" alt="">
+                    <div class="efetivo-char">
+                        <h1>></h1>
+                    </div>
+                    <img src="assets/images/elementos/psiquico.png" alt="">
+                </div>
+        </div>
+
+    </div>
+</div>
