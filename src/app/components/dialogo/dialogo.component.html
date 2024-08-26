@@ -1,0 +1,13 @@
+<div class="dialogo" *ngIf="mostrarDiv">
+    <div class="dialogo-centro">
+        <div class="dialogo-continuar">
+            <button (click)="proximaMensagem()">Continuar</button>
+        </div>
+        <div class="dialogo-conversa">
+            <p>{{this.mensagem}}</p>
+        </div>
+        <div class="dialogo-personagem">
+            <img src="{{this.imagemDialogo}}" alt="Treinador">
+        </div>
+    </div>
+</div>
