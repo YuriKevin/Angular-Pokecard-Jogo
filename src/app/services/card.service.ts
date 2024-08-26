@@ -11,6 +11,162 @@ export class CardService {
   controleDeIndicesUsados:number[] = [];
 
 
+  deckInicial(){
+    const cartasFiltradas = this.cards.filter(card => card.raridade == "Comum");
+    return this.gerarCartasAleatorias(cartasFiltradas);
+  }
+
+  novaCarta(dificuldadeTreinador:string):Card{
+    const getRandomInt = (max: number) => Math.floor(Math.random() * max);
+    let num = getRandomInt(1000);
+    if(dificuldadeTreinador=='Fácil'){
+      if(num>990){
+        const card:Card = this.gerarCartaLendaria();
+        this.usuarioService.addNovaCarta(card);
+        return card;
+      }
+      else if(num>500){
+        const card:Card = this.gerarCartaRara();
+        this.usuarioService.addNovaCarta(card);
+        return card;
+      }
+      else{
+        const card:Card = this.gerarCartaComum();
+        this.usuarioService.addNovaCarta(card);
+        return card;
+      }
+    }
+    else if(dificuldadeTreinador=='Médio'){
+      if(num>950){
+        const card:Card = this.gerarCartaLendaria();
+        this.usuarioService.addNovaCarta(card);
+        return card;
+      }
+      else if(num>200){
+        const card:Card = this.gerarCartaRara();
+        this.usuarioService.addNovaCarta(card);
+        return card;
+      }
+      else{
+        const card:Card = this.gerarCartaComum();
+        this.usuarioService.addNovaCarta(card);
+        return card;
+      }
+    }
+    else if(dificuldadeTreinador=='Difícil'){
+      if(num>900){
+        const card:Card = this.gerarCartaLendaria();
+        this.usuarioService.addNovaCarta(card);
+        return card;
+      }
+      else if(num>50){
+        const card:Card = this.gerarCartaRara();
+        this.usuarioService.addNovaCarta(card);
+        return card;
+      }
+      else{
+        const card:Card = this.gerarCartaComum();
+        this.usuarioService.addNovaCarta(card);
+        return card;
+      }
+    }
+    else{
+      const card:Card = this.gerarCartaLendaria();
+        this.usuarioService.addNovaCarta(card);
+        return card;
+    }
+  }
+
+
+
+
+  gerarCartaLendaria():Card{
+    const cartasFiltradas = this.cards.filter(card => card.raridade == "Lendária");
+    return this.gerarUmaCartaAleatoria(cartasFiltradas);
+  }
+  gerarCartaRara():Card{
+    const cartasFiltradas = this.cards.filter(card => card.raridade == "Rara");
+    return this.gerarUmaCartaAleatoria(cartasFiltradas);
+  }
+  gerarCartaComum():Card{
+    const cartasFiltradas = this.cards.filter(card => card.raridade == "Comum");
+    return this.gerarUmaCartaAleatoria(cartasFiltradas);
+  }
+
+  gerarCartasAleatorias(cards:Card[]): Card[]{
+    const getRandomInt = (max: number) => Math.floor(Math.random() * max);
+
+    this.deckInimigo = [];
+    this.controleDeIndicesUsados = [];
+
+    while (this.deckInimigo.length < 20) {
+      let num = getRandomInt(cards.length);
+
+      if (!this.controleDeIndicesUsados.includes(num)) {
+        this.controleDeIndicesUsados.push(num);
+        this.deckInimigo.push(cards[num]);
+        console.log(cards[num]);
+      }
+    }
+    return this.deckInimigo;
+  }
+
+  gerarUmaCartaAleatoria(cards:Card[]): Card{
+    const getRandomInt = (max: number) => Math.floor(Math.random() * max);
+
+    let num = getRandomInt(cards.length);
+    let numeroVezesWhile = 0;
+    while(true){
+      if (!this.usuarioService.getUsuario().cards.some(carta => carta.id === cards[num].id)) {
+        this.usuarioService.addNovaCarta(cards[num]);
+        return cards[num];
+      }
+      else if(numeroVezesWhile==100){
+        return cards[num];
+      }
+      numeroVezesWhile++
+    }
+  }
+
+  deckFacilAleatorio(): Card[] {
+    const cartasFiltradas = this.cards.filter(card => card.forca < 100);
+    return this.gerarCartasAleatorias(cartasFiltradas);
+  }
+  deckMedioAleatorio(): Card[] {
+    const cartasFiltradas = this.cards.filter(card => 240 > card.forca && card.forca > 100);
+    return this.gerarCartasAleatorias(cartasFiltradas);
+  }
+  deckDificilAleatorio(): Card[] {
+    const cartasFiltradas = this.cards.filter(card => card.forca > 170);
+    return this.gerarCartasAleatorias(cartasFiltradas);
+  }
+  deckLendarioAleatorio(): Card[] {
+    const cartasFiltradas = this.cards.filter(card => card.forca > 260);
+    return this.gerarCartasAleatorias(cartasFiltradas);
+  }
+
+  deckLideresDeGinasio(elemento:string){
+    this.deckInimigo = [];
+    const cartasFiltradas = this.cards.filter(card => card.elemento == elemento);
+    
+    cartasFiltradas.forEach(carta => {
+      this.deckInimigo.push(carta);
+    });
+  
+    const cartasFiltradas2 = this.cards.filter(card => card.elemento != elemento && card.forca>200);
+    let index = 0;
+    while(this.deckInicial.length<20){
+      this.deckInimigo.push(cartasFiltradas2[index]);
+      index++
+    }
+      return this.deckInimigo;
+  }
+
+
+
+
+
+
   constructor(private usuarioService:UsuarioService) { 
     
     //Elétricos
@@ -1310,80 +1466,5 @@ export class CardService {
     
   }
 
-  deckInicial(){
-    const cartasFiltradas = this.cards.filter(card => card.raridade == "Comum");
-    return this.gerarCartasAleatorias(cartasFiltradas);
-  }
-
-  novaCarta():Card{
-    const getRandomInt = (max: number) => Math.floor(Math.random() * max);
-    let num = getRandomInt(1000);
-    if(num>990){
-      const card:Card = this.gerarCartaLendaria();
-      this.usuarioService.addNovaCarta(card);
-      return card;
-    }
-    else if(num>500){
-      const card:Card = this.gerarCartaRara();
-      this.usuarioService.addNovaCarta(card);
-      return card;
-    }
-    else{
-      const card:Card = this.gerarCartaComum();
-      this.usuarioService.addNovaCarta(card);
-      return card;
-    }
-  }
-  gerarCartaLendaria():Card{
-    const cartasFiltradas = this.cards.filter(card => card.raridade == "Lendária");
-    return this.gerarUmaCartaAleatoria(cartasFiltradas);
-  }
-  gerarCartaRara():Card{
-    const cartasFiltradas = this.cards.filter(card => card.raridade == "Rara");
-    return this.gerarUmaCartaAleatoria(cartasFiltradas);
-  }
-  gerarCartaComum():Card{
-    const cartasFiltradas = this.cards.filter(card => card.raridade == "Comum");
-    return this.gerarUmaCartaAleatoria(cartasFiltradas);
-  }
-  deckFacilAleatorio(): Card[] {
-    const cartasFiltradas = this.cards.filter(card => card.forca < 100);
-    return this.gerarCartasAleatorias(cartasFiltradas);
-  }
-
-  gerarCartasAleatorias(cards:Card[]): Card[]{
-    const getRandomInt = (max: number) => Math.floor(Math.random() * max);
-
-    this.deckInimigo = [];
-    this.controleDeIndicesUsados = [];
-
-    while (this.deckInimigo.length < 20) {
-      let num = getRandomInt(cards.length);
-
-      if (!this.controleDeIndicesUsados.includes(num)) {
-        this.controleDeIndicesUsados.push(num);
-        this.deckInimigo.push(cards[num]);
-        console.log(cards[num]);
-      }
-    }
-    return this.deckInimigo;
-  }
-
-  gerarUmaCartaAleatoria(cards:Card[]): Card{
-    const getRandomInt = (max: number) => Math.floor(Math.random() * max);
-
-    let num = getRandomInt(cards.length);
-    let numeroVezesWhile = 0;
-    while(true){
-      if (!this.usuarioService.getUsuario().cards.some(carta => carta.id === cards[num].id)) {
-        this.usuarioService.addNovaCarta(cards[num]);
-        return cards[num];
-      }
-      else if(numeroVezesWhile==100){
-        return cards[num];
-      }
-      numeroVezesWhile++
-    }
-  }
 
 }
