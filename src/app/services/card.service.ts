@@ -9,6 +9,7 @@ export class CardService {
   cards:Card[] = [];
   deckInimigo:Card[] = []
   controleDeIndicesUsados:number[] = [];
+  cartaAjuda!:Card;
 
 
   deckInicial(){
@@ -1462,6 +1463,15 @@ export class CardService {
       this.usuarioService.getUsuario().cards.forEach(carta => {
         this.usuarioService.getUsuario().deck.push(carta);
       });
+    }
+
+    this.cartaAjuda = {
+      id: 1000,
+      nome: 'Mewtwo GX',
+      imagem: 'legendary.gif',
+      forca: 300,
+      elemento: 'Sombrio',
+      raridade: 'Lendária'
     }
     
   }
