@@ -126,4 +126,8 @@
     </div>
 
 </div>
-<div class="fechar-background" (click)="fecharBackground()" *ngIf="fecharBackgroundDiv"></div>
+<div class="fechar-background" (click)="fecharBackground()" *ngIf="fecharBackgroundDiv">
+
+</div>
+
+<app-dialogo [numeroBatalha]="numeroBatalha" [imagemDialogo]="oponente.imagem" *ngIf="dialogoDiv"></app-dialogo>
