@@ -38,6 +38,7 @@ export class DueloComponent implements OnInit{
   caminhoCardUsuario:string = "assets/images/cards/card.png";
   usuario!:Usuario;
   oponente!:Treinador;
+  ajudaUtilizada:boolean = false;
 
   vantagem: { [key: string]: string[] } = {
     Elétrico: ['Água', 'Voador'],
@@ -185,5 +186,11 @@ export class DueloComponent implements OnInit{
     this.fecharBackgroundDiv = false;
   }
 
+  ajuda(){
+    if(this.ajudaUtilizada==false){
+      this.ajudaUtilizada = true;
+    }
+    this.cartaEscolhida(this.cardService.cartaAjuda);
+  }
 
 }
