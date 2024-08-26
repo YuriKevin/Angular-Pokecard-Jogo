@@ -52,12 +52,12 @@ export class DueloComponent implements OnInit{
   };
 
   constructor(private batalhaService:BatalhaService, private usuarioService:UsuarioService, private cardService:CardService, private el: ElementRef, private router: Router){
-    this.router.navigate(['/campanha']);
+    
   }
 
   ngOnInit(): void {
     if(this.usuarioService.getTamanhoDeck()<20){
-
+      this.router.navigate(['/campanha']);
     }
       this.usuario = this.usuarioService.getUsuario();
       this.cartasDisponiveis = this.usuario.deck.slice(0, 6);
@@ -138,22 +138,23 @@ export class DueloComponent implements OnInit{
       if(cartaOponente.elemento == cartaUsuario.elemento){
           return this.compararForcaCarta(cartaOponente, cartaUsuario);
       }
-      else{
+      else {
+        const vantagemOponente = this.vantagem[cartaOponente.elemento] || [];
+        const vantagemUsuario = this.vantagem[cartaUsuario.elemento] || [];
         
-        if((this.vantagem[cartaOponente.elemento] ? this.vantagem[cartaOponente.elemento].includes(cartaUsuario.elemento) : false)){
+        if (vantagemOponente.includes(cartaUsuario.elemento)) {
+          return false;
+        } 
+        else if (vantagemUsuario.includes(cartaOponente.elemento)) {
           return true;
-        }
-        else if((this.vantagem[cartaUsuario.elemento] ? this.vantagem[cartaUsuario.elemento].includes(cartaOponente.elemento) : false)){
-          return true;
-        }
-        else{
+        } 
+        else {
           return this.compararForcaCarta(cartaOponente, cartaUsuario);
         }
       }
     }
-
-    
   }
+
   compararForcaCarta(cartaOponente:Card, cartaUsuario:Card):boolean{
     if(cartaOponente.forca > cartaUsuario.forca){
       return false;
