@@ -138,7 +138,7 @@ export class CardService {
     return this.gerarCartasAleatorias(cartasFiltradas);
   }
   deckDificilAleatorio(): Card[] {
-    const cartasFiltradas = this.cards.filter(card => card.forca > 170);
+    const cartasFiltradas = this.cards.filter(card =>  260 > card.forca && card.forca > 190);
     return this.gerarCartasAleatorias(cartasFiltradas);
   }
   deckLendarioAleatorio(): Card[] {
