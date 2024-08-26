@@ -8,14 +8,14 @@
 }
 .centro{
     width: 320px;
-    height: 500px;
+    height: 600px;
     display: block;
 }
 .centro > *{
     width: 100%;
 }
 .botao{
-    height: 10%;
+    height: 8%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -33,7 +33,7 @@
     transform: scale(1.2);
 }
 .proxima-batalha{
-    height: 70%;
+    height: 56%;
     display: block;
 }
 .batalha-titulo{
