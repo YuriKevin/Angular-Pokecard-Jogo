@@ -112,8 +112,11 @@ export class DueloComponent implements OnInit{
       else {
         this.pontosOponente++;
         if (this.pontosOponente === 7) {
-          this.terminoPartida=true;
-          this.perdeu=true;
+          setTimeout(() => {
+            this.jogadaDiv=false;
+            this.terminoPartida=true;
+            this.perdeu=true;
+          }, 4000);
         }
       }
       this.indiceCartasOponente++;
