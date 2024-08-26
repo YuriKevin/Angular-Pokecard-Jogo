@@ -153,12 +153,12 @@ export class CardService {
       this.deckInimigo.push(carta);
     });
   
-    const cartasFiltradas2 = this.cards.filter(card => card.elemento != elemento && card.forca>200);
+    /*const cartasFiltradas2 = this.cards.filter(card => card.elemento !== elemento && card.forca>200);
     let index = 0;
     while(this.deckInicial.length<20){
       this.deckInimigo.push(cartasFiltradas2[index]);
       index++
-    }
+    }*/
       return this.deckInimigo;
   }
 
