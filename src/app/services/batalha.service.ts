@@ -16,7 +16,7 @@ export class BatalhaService {
   batalhar(numeroDaBatalha:number):Treinador{
     switch(numeroDaBatalha){
       case 1:
-      return this.batalha6();
+      return this.batalha1();
       break;
 
       case 2:
@@ -97,7 +97,7 @@ export class BatalhaService {
     return this.treinadorAtual = this.gerarLiderDeGinasio('Erica', 'Grama', 'erica.png', 'Esta é a líder do ginásio de grama.');
   }
   batalha9(){
-    return this.treinadorAtual = this.gerarLiderDeGinasio('Falkner', 'Voador', 'jasmine.png', 'Este é o líder do ginásio de voadores.');
+    return this.treinadorAtual = this.gerarLiderDeGinasio('Falkner', 'Voador', 'falkner.png', 'Este é o líder do ginásio de voadores.');
   }
   batalha10(){
     return this.treinadorAtual = this.gerarLiderDeGinasio('Sabrina', 'Psiquico', 'sabrina.png', 'Esta é a líder do ginásio psíquico.');
