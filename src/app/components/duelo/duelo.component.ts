@@ -170,7 +170,7 @@ export class DueloComponent implements OnInit{
     this.terminoPartida = false;
     this.jogadaDiv = false;
     this.abrirCartaDiv = true;
-    const card:Card = this.cardService.novaCarta();
+    const card:Card = this.cardService.novaCarta(this.oponente.dificuldade);
     setTimeout(()=>{
       this.novaCartaCaminho = "assets/images/cards/"+card.imagem;
     },5000);
