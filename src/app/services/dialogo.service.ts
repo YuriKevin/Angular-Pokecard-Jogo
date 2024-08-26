@@ -8,7 +8,7 @@ export class DialogoService {
 
   constructor() { }
 
-  retornarDialogo(numeroBatalha:number):string[]{
+  retornarDialogoBatalha(numeroBatalha:number):string[]{
     this.dialogo = [];
     switch(numeroBatalha){
       case 1:
@@ -126,6 +126,10 @@ export class DialogoService {
   batalha13():string[]{
     this.dialogo.push('Trema de medo, o tempo sombrio chegou.');
     this.dialogo.push('Deste ginásio você só passa como um fantasma.');
+    return this.dialogo;
+  }
+
+  retornarDialogoCampanha(numeroBatalha:number):string[]{
     return this.dialogo;
   }
 
