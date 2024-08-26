@@ -12,6 +12,7 @@ import { DialogoService } from '../../services/dialogo.service';
 export class DialogoComponent implements OnInit{
   @Input() numeroBatalha!:number;
   @Input() imagemDialogo!:string;
+  @Input() dialogoCampanha!:boolean;
   dialogo: string[] = [];
   mensagem:string = '';
   index:number = 0;
@@ -20,7 +21,12 @@ export class DialogoComponent implements OnInit{
   constructor(private dialogoService:DialogoService){}
 
   ngOnInit(): void {
-    this.dialogo = this.dialogoService.retornarDialogo(this.numeroBatalha);
+    if(this.dialogoCampanha){
+      this.dialogo = this.dialogoService.retornarDialogoCampanha(this.numeroBatalha);
+    }
+    else{
+      this.dialogo = this.dialogoService.retornarDialogoBatalha(this.numeroBatalha);
+    }
     if(this.dialogo.length>0){
       this.mensagem = this.dialogo[this.index];
       const caminhoBaseImagem = 'assets/images/personagens/';
