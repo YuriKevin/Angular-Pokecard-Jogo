@@ -7,11 +7,12 @@ import { Card } from '../../model/card';
 import { Usuario } from '../../model/usuario';
 import { CardService } from '../../services/card.service';
 import { Router, RouterModule } from '@angular/router';
+import { DialogoComponent } from '../dialogo/dialogo.component';
 
 @Component({
   selector: 'app-duelo',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, DialogoComponent],
   templateUrl: './duelo.component.html',
   styleUrl: './duelo.component.css'
 })
@@ -39,6 +40,8 @@ export class DueloComponent implements OnInit{
   usuario!:Usuario;
   oponente!:Treinador;
   ajudaUtilizada:boolean = false;
+  dialogoDiv:boolean = false;
+  numeroBatalha!:number;
 
   vantagem: { [key: string]: string[] } = {
     Elétrico: ['Água', 'Voador'],
@@ -61,6 +64,7 @@ export class DueloComponent implements OnInit{
       this.router.navigate(['/campanha']);
     }
       this.usuario = this.usuarioService.getUsuario();
+      this.numeroBatalha = this.usuario.batalhaAtual;
       this.cartasDisponiveis = this.usuario.deck.slice(0, 6);
       this.oponente = this.batalhaService.batalhar(this.usuario.batalhaAtual);
       const caminhoBase = 'assets/images/personagens/';
@@ -69,7 +73,8 @@ export class DueloComponent implements OnInit{
       this.caminhoImagemUsuario = `${caminhoBase}${this.usuario.imagem}`;
 
       setTimeout(( ) => {
-        this.inicioDiv = false
+        this.inicioDiv = false;
+        this.dialogoDiv = true;
       }, 4000)
   }
   
