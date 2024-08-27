@@ -10,6 +10,7 @@ export class BatalhaService {
   treinadorAtual?:Treinador;
   deckGerado!:Card[];
   dica:string = '';
+  batalhaRepetida!:number;
 
   constructor(private cardService:CardService) { }
 
