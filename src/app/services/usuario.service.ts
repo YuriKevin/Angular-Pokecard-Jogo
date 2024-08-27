@@ -11,7 +11,8 @@ export class UsuarioService {
     cards: [],
     deck: [],
     imagem: 'ash.png',            
-    batalhaAtual: 1
+    batalhaAtual: 1,
+    campeaoLigaAmadora: false
   };
   
   constructor() {
