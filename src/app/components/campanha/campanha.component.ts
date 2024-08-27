@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
-import { RouterModule } from '@angular/router';
+import { Router, RouterLink, RouterModule } from '@angular/router';
 import { UsuarioService } from '../../services/usuario.service';
 import { BatalhaService } from '../../services/batalha.service';
 import { Treinador } from '../../model/treinador';
@@ -24,10 +24,13 @@ export class CampanhaComponent implements OnInit, AfterViewInit{
   numeroBatalha!:number;
   imagemDialogo!:string;
 
-  constructor(private usuarioService:UsuarioService, private batalhaService:BatalhaService, private dialogoService:DialogoService, private cdRef: ChangeDetectorRef){}
+  constructor(private usuarioService:UsuarioService, private batalhaService:BatalhaService, private dialogoService:DialogoService, private cdRef: ChangeDetectorRef, private router:Router){}
 
   ngOnInit(): void {
     const numeroBatalhaAtual = this.usuarioService.usuario.batalhaAtual; 
+    if(numeroBatalhaAtual>20 && this.usuarioService.usuario.campeaoLigaAmadora==false){
+      this.router.navigate(['/liga-amadora']);
+    }
     this.numeroBatalha = numeroBatalhaAtual;
     this.proximoOponente = this.batalhaService.batalhar(numeroBatalhaAtual);
     const caminhoBaseImagem = 'assets/images/personagens/';
