@@ -7,6 +7,25 @@
     justify-content: center;
     background: radial-gradient(circle, rgb(59, 119, 202) 0%, rgb(3, 27, 84) 100%);
 }
+.block{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.titulo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+    background-color: black;
+    font-size: 10px;
+    text-align: center;
+    color: white;
+}
+.titulo h1{
+    margin: 0px;
+}
 .flex{
     width: 100%;
     min-height: 100vh;

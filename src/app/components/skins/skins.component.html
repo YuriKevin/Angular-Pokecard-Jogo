@@ -1,8 +1,13 @@
 <app-header></app-header>
 <div class="container">
-    <div class="flex">
-        <img *ngFor="let imagem of possui" [src]="caminhoBase + imagem" alt="imagem"  (click)="selecionarSkin(imagem)">
-        <img *ngFor="let imagem of naoPossui" [src]="caminhoBase + imagem" alt="imagem" class="escuro" (click)="selecionarSkin(imagem)">
+    <div class="block">
+        <div class="titulo">
+            <h1>Clique na skin que você deseja usar:</h1>
+        </div>
+        <div class="flex">
+            <img *ngFor="let imagem of possui" [src]="caminhoBase + imagem" alt="imagem"  (click)="selecionarSkin(imagem)">
+            <img *ngFor="let imagem of naoPossui" [src]="caminhoBase + imagem" alt="imagem" class="escuro" (click)="selecionarSkin(imagem)">
+        </div>
     </div>
 </div>
 <div *ngIf="mostrarDivSelecionada" class="selecionada">
