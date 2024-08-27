@@ -2,11 +2,31 @@
 <div class="container">
     <div class="block">
         <div class="titulo">
-            <h1>Clique na skin que você deseja usar:</h1>
+            <h1>Centro de treinadores:</h1>
         </div>
         <div class="flex">
-            <img *ngFor="let imagem of possui" [src]="caminhoBase + imagem" alt="imagem"  (click)="selecionarSkin(imagem)">
-            <img *ngFor="let imagem of naoPossui" [src]="caminhoBase + imagem" alt="imagem" class="escuro" (click)="selecionarSkin(imagem)">
+            <div class="jogar" *ngFor="let imagem of possui">
+                <div>
+                    <img  [src]="caminhoBase + imagem" alt="imagem">
+                </div>
+                <div>
+                    <button (click)="selecionarSkin(imagem)">Selecionar Skin</button>
+                </div>
+                <div>
+                    <button (click)="jogar(imagem)">Jogar</button>
+                </div>
+            </div>
+            <div class="jogar" *ngFor="let imagem of naoPossui">
+                <div>
+                    <img [src]="caminhoBase + imagem" alt="imagem" class="escuro">
+                </div>
+                <div>
+                    <button (click)="selecionarSkin(imagem)">Selecionar Skin</button>
+                </div>
+                <div>
+                    <button>Indisponível</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
