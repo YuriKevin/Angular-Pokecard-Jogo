@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { RouterModule } from '@angular/router';
 import { UsuarioService } from '../../services/usuario.service';
@@ -15,15 +15,16 @@ import { DialogoService } from '../../services/dialogo.service';
   templateUrl: './campanha.component.html',
   styleUrl: './campanha.component.css'
 })
-export class CampanhaComponent implements OnInit{
+export class CampanhaComponent implements OnInit, AfterViewInit{
   proximoOponente!:Treinador;
   caminhoImagemOponente:string = '';
   mensagem:string='';
   jogarBotao!:boolean;
   incompletoBotao!:boolean;
   numeroBatalha!:number;
+  imagemDialogo!:string;
 
-  constructor(private usuarioService:UsuarioService, private batalhaService:BatalhaService){}
+  constructor(private usuarioService:UsuarioService, private batalhaService:BatalhaService, private dialogoService:DialogoService, private cdRef: ChangeDetectorRef){}
 
   ngOnInit(): void {
     const numeroBatalhaAtual = this.usuarioService.usuario.batalhaAtual; 
@@ -37,6 +38,12 @@ export class CampanhaComponent implements OnInit{
     else{
       this.incompletoBotao = true;
     }
+    this.imagemDialogo = caminhoBaseImagem;
+  }
+
+  ngAfterViewInit(): void {
+      this.imagemDialogo+=this.dialogoService.personagemAtual;
+      this.cdRef.detectChanges();
   }
 
 }
