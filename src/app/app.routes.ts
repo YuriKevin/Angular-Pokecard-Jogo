@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { HeaderComponent } from './components/header/header.component';
 import { DueloComponent } from './components/duelo/duelo.component';
 import { CampanhaComponent } from './components/campanha/campanha.component';
 import { DeckComponent } from './components/deck/deck.component';
