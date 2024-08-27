@@ -11,6 +11,7 @@ export class BatalhaService {
   deckGerado!:Card[];
   dica:string = '';
   batalhaRepetida!:number;
+  ligaAmadora:boolean = false;
 
   constructor(private cardService:CardService) { }
 
@@ -68,6 +69,34 @@ export class BatalhaService {
       return this.batalha13();
       break;
 
+      case 14:
+      return this.batalha14();
+      break;
+
+      case 15:
+      return this.batalha15();
+      break;
+
+      case 16:
+      return this.batalha16();
+      break;
+
+      case 17:
+      return this.batalha17();
+      break;
+
+      case 18:
+      return this.batalha18();
+      break;
+
+      case 19:
+      return this.batalha19();
+      break;
+
+      case 20:
+      return this.batalha20();
+      break;
+
       default:
         return this.batalha1();
     }
@@ -112,6 +141,32 @@ export class BatalhaService {
   batalha13(){
     return this.treinadorAtual = this.gerarLiderDeGinasio('Agatha', 'Sombrio', 'agatha.png', 'Esta é a líder do ginásio sombrio.');
   }
+  batalha14(){
+    return this.treinadorAtual = this.gerarJessie();
+  }
+  batalha15(){
+    return this.treinadorAtual = this.gerarJames();
+  }
+  batalha16(){
+    this.ligaAmadora = true;
+    return this.treinadorAtual = this.gerarLigaPokemonAmadora('Chuck', 'chuck.png');
+  }
+  batalha17(){
+    this.ligaAmadora = true;
+    return this.treinadorAtual = this.gerarLigaPokemonAmadora('Dawn', 'dawn.png');
+  }
+  batalha18(){
+    this.ligaAmadora = true;
+    return this.treinadorAtual = this.gerarLigaPokemonAmadora('Serena', 'serena.png');
+  }
+  batalha19(){
+    this.ligaAmadora = true;
+    return this.treinadorAtual = this.gerarLigaPokemonAmadora('Kiawe', 'kiawe.png');
+  }
+  batalha20(){
+    this.ligaAmadora = true;
+    return this.treinadorAtual = this.gerarOponenteDificil('Gary', 'gary.png');
+  }
 
   gerarTreinadorShadow(dificuldade:String):Treinador{
     if(dificuldade='Fácil'){
@@ -154,6 +209,43 @@ export class BatalhaService {
       deck: this.cardService.deckLideresDeGinasio(elemento),
       imagem: imagem,
       dica: dica
+    };
+  }
+  gerarLigaPokemonAmadora(nome:string, imagem:string){
+    return this.treinadorAtual = {
+      nome: nome,
+      dificuldade: 'Médio',
+      deck: this.cardService.deckMedioAleatorio(),
+      imagem: imagem,
+      dica: 'A liga pokémon não libera dicas. Seus participantes normalmente possuem uma vasta quantidade de pokémons.'
+    };
+  }
+  gerarOponenteDificil(nome:string, imagem:string){
+    return this.treinadorAtual = {
+      nome: nome,
+      dificuldade: 'Médio',
+      deck: this.cardService.deckDificilAleatorio(),
+      imagem: imagem,
+      dica: 'A liga pokémon não libera dicas. Seus participantes normalmente possuem uma vasta quantidade de pokémons.'
+    };
+  }
+
+  gerarJessie(){
+    return this.treinadorAtual = {
+      nome: 'Jessie',
+      dificuldade: 'Médio',
+      deck: this.cardService.deckJessie(),
+      imagem: 'jessie.png',
+      dica: 'Jessie adora Wobbufet.'
+    };
+  }
+  gerarJames(){
+    return this.treinadorAtual = {
+      nome: 'James',
+      dificuldade: 'Médio',
+      deck: this.cardService.deckJames(),
+      imagem: 'james.png',
+      dica: 'Jessie adora Weezing.'
     };
   }
 
