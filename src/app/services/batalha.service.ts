@@ -97,6 +97,10 @@ export class BatalhaService {
       return this.batalha20();
       break;
 
+      case 21:
+      return this.batalha21();
+      break;
+
       default:
         return this.batalha1();
     }
@@ -166,6 +170,9 @@ export class BatalhaService {
   batalha20(){
     this.ligaAmadora = true;
     return this.treinadorAtual = this.gerarOponenteDificil('Gary', 'gary.png');
+  }
+  batalha21(){
+    return this.treinadorAtual = this.gerarOponenteDificil('Jessie & James', 'jessiejames.png');
   }
 
   gerarTreinadorShadow(dificuldade:String):Treinador{
