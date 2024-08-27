@@ -141,6 +141,7 @@ export class DueloComponent implements OnInit{
           if(this.ligaAmadora && !this.batalhaRepetida){
               this.usuario.batalhaAtual = 16;
           }
+          this.batalhaService.ligaAmadora = false;
         }
       }
       this.indiceCartasOponente++;
