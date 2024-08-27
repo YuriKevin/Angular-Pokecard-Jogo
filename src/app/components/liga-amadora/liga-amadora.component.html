@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="block">
+        <div class="titulo">
+            <h1>Campeão Liga Pokémon Amadora!</h1>
+        </div>
+        <div class="titulo">
+            <h1>Abaixo suas recompensas!</h1>
+        </div>
+        <div class="flex">
+            <img *ngFor="let carta of cards" [src]="caminhoImagem + carta.imagem"  alt="">
+        </div>
+        <div class="voltar">
+            <button [routerLink]="['/campanha']">Voltar</button>
+        </div>
+    </div>
+</div>
+<div class="trofeu" *ngIf="trofeuDiv" (click)="fecharTrofeu()">
+    <img src="assets/images/trofeu.png" alt="Troféu">
+</div>
