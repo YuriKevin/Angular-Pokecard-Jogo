@@ -92,6 +92,10 @@ export class DialogoService {
         return this.batalha20();
       break;
 
+      case 21:
+        return this.batalha21();
+      break;
+
       default:
         return this.batalha1();
     }
@@ -202,6 +206,21 @@ export class DialogoService {
     this.dialogo.push('VAMOS!');
     return this.dialogo;
   }
+  batalha21():string[]{
+    this.dialogo.push('Pra proteger o mundo de toda a devastação...');
+    this.dialogo.push('Pra unir todas as pessoas em nossa nação...');
+    this.dialogo.push('Pra denunciar os males da verdade e do amor...');
+    this.dialogo.push('Pra estender nosso poder as estrelas.');
+    this.dialogo.push('Eu sou Jessie.');
+    this.dialogo.push('E eu sou James!');
+    this.dialogo.push('EQUIPE ROCKET DECOLANDO NA VELOCIDADE DA LUZ!');
+    this.dialogo.push('Renda-se agora ou prepare-se pra lutar.');
+    this.dialogo.push('Da última vez você nos venceu, de lá pra cá muita coisa mudou campeão.');
+    this.dialogo.push('E dessa vez as coisas vão ser diferentes.');
+    this.dialogo.push('Viemos buscar o seu mais novo troféu...');
+    this.dialogo.push('O ENTREGUE!');
+    return this.dialogo;
+  }
 
   retornarDialogoCampanha(numeroBatalha:number):string[]{
     this.dialogo = [];
@@ -228,6 +247,10 @@ export class DialogoService {
 
       case 20:
         return this.campanha20();
+      break;
+
+      case 21:
+        return this.campanha21();
       break;
       
     }
@@ -297,6 +320,15 @@ export class DialogoService {
     this.dialogo.push('Ele ganhou a última edição da liga pokémon amadora.');
     this.dialogo.push('Os pokémons dele são muito fortes, sugiro que seu deck esteja preparado antes de enfrentá-lo.');
     this.dialogo.push('Ficarei feliz com a vitória de qualquer um dos dois!');
+    return this.dialogo;
+  }
+  campanha21():string[]{
+    this.personagemAtual = 'professor.png';
+    this.dialogo.push('Meus parabéns!');
+    this.dialogo.push('O grande campeão da liga amadora de pokémon!');
+    this.dialogo.push('A partir de agora você esta por si só, mas...');
+    this.dialogo.push('Se quer um palpite, deveria enfrentar os lendários treinadores da "Elite Four".');
+    this.dialogo.push('Aproveite sua vitória!');
     return this.dialogo;
   }
 
