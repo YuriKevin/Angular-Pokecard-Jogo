@@ -1,12 +1,69 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { UsuarioService } from '../../services/usuario.service';
+import { HeaderComponent } from '../header/header.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-skins',
   standalone: true,
-  imports: [],
+  imports: [HeaderComponent, CommonModule],
   templateUrl: './skins.component.html',
   styleUrl: './skins.component.css'
 })
-export class SkinsComponent {
+export class SkinsComponent implements OnInit{
+  mostrarDivSelecionada:boolean = false;
+  mensagemDivSelecionada:string = '';
+  caminhoBase:string = 'assets/images/personagens/';
+  skins: { [numeroBatalha: number]: string } = {
+    1: 'shadow.png',
+    5: 'brock.png',
+    6: 'misty.png',
+    7: 'blaine.png',
+    8: 'erica.png',
+    9: 'falkner.png',
+    10: 'sabrina.png',
+    11: 'surge.png',
+    12: 'jasmine.png',
+    13: 'agatha.png',
+    100: 'ash.png'
+  };
+  possui:string[] = [];
+  naoPossui:string[] = []
+
+  constructor(private usuarioService:UsuarioService){}
+
+  ngOnInit(): void {
+    for (const [numeroBatalha, imagemDoArray] of Object.entries(this.skins)) {
+      const numeroSelecionado = parseInt(numeroBatalha, 10);
+        if(this.usuarioService.usuario.batalhaAtual>numeroSelecionado){
+          this.possui.push(imagemDoArray);
+        }
+        else{
+          this.naoPossui.push(imagemDoArray);
+        }
+    }
+  }
+
+  selecionarSkin(imagemSelecionada:string){
+    if(this.possui.includes(imagemSelecionada)){
+      this.usuarioService.usuario.imagem = imagemSelecionada;
+      this.mensagemDivSelecionada = 'Skin selecionada';
+      this.mostrarDivSelecionada = true;
+      setTimeout(()=> {
+        this.mostrarDivSelecionada = false;
+      }, 2000)
+      return;
+    }
+    else{
+      this.mensagemDivSelecionada = 'Para utilizar esta skin primeiro você deve vencer este treinador.';
+      this.mostrarDivSelecionada = true;
+      setTimeout(()=> {
+        this.mostrarDivSelecionada = false;
+      }, 2000)
+      return;
+    }
+  }
+
+
 
 }
