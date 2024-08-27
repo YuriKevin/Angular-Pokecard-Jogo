@@ -7,7 +7,7 @@
         <div class="flex">
             <div class="jogar" *ngFor="let imagem of possui">
                 <div>
-                    <img  [src]="caminhoBase + imagem" alt="imagem">
+                    <img  [src]="caminhoBase + imagem" alt="imagem" (click)="selecionarSkin(imagem)">
                 </div>
                 <div>
                     <button (click)="selecionarSkin(imagem)">Selecionar Skin</button>
@@ -18,7 +18,7 @@
             </div>
             <div class="jogar" *ngFor="let imagem of naoPossui">
                 <div>
-                    <img [src]="caminhoBase + imagem" alt="imagem" class="escuro">
+                    <img [src]="caminhoBase + imagem" alt="imagem" class="escuro" (click)="selecionarSkin(imagem)">
                 </div>
                 <div>
                     <button (click)="selecionarSkin(imagem)">Selecionar Skin</button>
