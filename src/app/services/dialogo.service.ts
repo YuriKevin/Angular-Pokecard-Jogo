@@ -131,6 +131,17 @@ export class DialogoService {
 
   retornarDialogoCampanha(numeroBatalha:number):string[]{
     this.dialogo = [];
+    if(numeroBatalha==1){
+      return this.campanha1();
+    }
+    return this.dialogo;
+  }
+  campanha1():string[]{
+    this.dialogo.push('Seja bem vindo! Sua jornada pokemon começou.');
+    this.dialogo.push('Preparei algumas cartas para você. Consulte-as no seu deck e organize-as da melhor maneira pra cada batalha.');
+    this.dialogo.push('Em caso de dúvida consulte o guia que preparei para você');
+    this.dialogo.push('Antes de te dar missões fortes, preparei 3 sombras para você enfrentar.');
+    this.dialogo.push('Boa sorte! Volte quando tiver acabado.');
     return this.dialogo;
   }
 
