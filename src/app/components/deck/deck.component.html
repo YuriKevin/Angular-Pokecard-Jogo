@@ -4,6 +4,9 @@
         <div class="titulo">
             <h1>Clique na carta para remover do deck</h1>
         </div>
+        <div class="remover-cartas">
+            <button (click)="removerTodas()">Remover todas</button>
+        </div>
         <div class="flex">
             <img *ngFor="let carta of deck" (click)="removerCartaDeck(carta)" [src]="caminhoImagem + carta.imagem"  alt="">
         </div>

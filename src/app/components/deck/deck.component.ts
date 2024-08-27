@@ -55,8 +55,16 @@ export class DeckComponent implements OnInit{
       }
     }
   }
+
+  removerTodas(){
+    this.cartasFiltradas.push(...this.deck);
+    this.deck = [];
+  }
+
   fecharDialogo(){
     this.dialogoDiv = false;
   }
+
+
 
 }
