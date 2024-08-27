@@ -6,4 +6,5 @@ export interface Usuario{
     deck: Card[];
     batalhaAtual:number;
     imagem:string;
+    campeaoLigaAmadora: boolean;
 }
