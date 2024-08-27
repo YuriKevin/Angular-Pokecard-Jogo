@@ -34,6 +34,7 @@ export class TreinadoresComponent implements OnInit{
     18: 'serena.png',
     19: 'kiawe.png',
     20: 'gary.png',
+    21: 'jessiejames.png',
     100: 'ash.png'
   };
   possui:string[] = [];
