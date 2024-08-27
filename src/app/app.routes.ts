@@ -6,6 +6,7 @@ import { DeckComponent } from './components/deck/deck.component';
 import { CartasComponent } from './components/cartas/cartas.component';
 import { GuiaComponent } from './components/guia/guia.component';
 import { TreinadoresComponent } from './components/treinadores/treinadores.component';
+import { LigaAmadoraComponent } from './components/liga-amadora/liga-amadora.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -14,5 +15,6 @@ export const routes: Routes = [
     { path: 'deck', component: DeckComponent },
     { path: 'cartas', component: CartasComponent },
     { path: 'guia', component: GuiaComponent },
-    { path: 'treinadores', component: TreinadoresComponent }
+    { path: 'treinadores', component: TreinadoresComponent },
+    { path: 'liga-amadora', component: LigaAmadoraComponent },
 ]
