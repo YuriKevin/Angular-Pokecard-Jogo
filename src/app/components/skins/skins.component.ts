@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../../services/usuario.service';
 import { HeaderComponent } from '../header/header.component';
 import { CommonModule } from '@angular/common';
+import { BatalhaService } from '../../services/batalha.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-skins',
@@ -30,7 +32,7 @@ export class SkinsComponent implements OnInit{
   possui:string[] = [];
   naoPossui:string[] = []
 
-  constructor(private usuarioService:UsuarioService){}
+  constructor(private usuarioService:UsuarioService, private batalhaService:BatalhaService, private router:Router){}
 
   ngOnInit(): void {
     for (const [numeroBatalha, imagemDoArray] of Object.entries(this.skins)) {
@@ -63,6 +65,20 @@ export class SkinsComponent implements OnInit{
       return;
     }
   }
+
+  jogar(imagem:string){
+    for (const [numeroBatalha, imagemDoArray] of Object.entries(this.skins)) {
+      if(imagem == imagemDoArray){
+        const numeroSelecionado = parseInt(numeroBatalha, 10);
+        this.batalhaService.batalhar(numeroSelecionado);
+        this.batalhaService.batalhaRepetida = numeroSelecionado;
+        this.router.navigate(['/duelo']);
+        return;
+      }
+    }
+  }
+
+
 
 
 
