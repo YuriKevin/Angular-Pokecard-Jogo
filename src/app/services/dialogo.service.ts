@@ -130,6 +130,7 @@ export class DialogoService {
   }
 
   retornarDialogoCampanha(numeroBatalha:number):string[]{
+    this.dialogo = [];
     return this.dialogo;
   }
 
