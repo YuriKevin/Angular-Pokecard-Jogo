@@ -42,6 +42,7 @@ export class DueloComponent implements OnInit{
   ajudaUtilizada:boolean = false;
   dialogoDiv:boolean = false;
   numeroBatalha!:number;
+  batalhaRepetida!:number;
 
   vantagem: { [key: string]: string[] } = {
     Elétrico: ['Água', 'Voador'],
@@ -64,9 +65,15 @@ export class DueloComponent implements OnInit{
       this.router.navigate(['/campanha']);
     }
       this.usuario = this.usuarioService.getUsuario();
-      this.numeroBatalha = this.usuario.batalhaAtual;
+      this.batalhaRepetida = this.batalhaService.batalhaRepetida;
+      if(this.batalhaRepetida && this.batalhaRepetida!=0){
+        this.numeroBatalha = this.batalhaRepetida;
+      }
+      else{
+        this.numeroBatalha = this.usuario.batalhaAtual;
+      }
       this.cartasDisponiveis = this.usuario.deck.slice(0, 6);
-      this.oponente = this.batalhaService.batalhar(this.usuario.batalhaAtual);
+      this.oponente = this.batalhaService.batalhar(this.numeroBatalha);
       const caminhoBase = 'assets/images/personagens/';
       const nomeImagem = this.oponente.imagem || 'shadow.png';
       this.caminhoImagemOponente = `${caminhoBase}${nomeImagem}`;
@@ -111,7 +118,13 @@ export class DueloComponent implements OnInit{
             this.jogadaDiv=false;
             this.terminoPartida=true;
             this.venceu=true;
-            this.usuario.batalhaAtual+=1;
+            if(!this.batalhaRepetida){
+              this.usuario.batalhaAtual+=1;
+              console.log("pontuação:"+this.usuario.batalhaAtual);
+            }
+            else{
+              this.batalhaService.batalhaRepetida = 0;
+            }
           }, 3000);
         }
       } 
