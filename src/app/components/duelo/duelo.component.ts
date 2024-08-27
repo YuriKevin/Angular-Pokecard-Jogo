@@ -43,6 +43,7 @@ export class DueloComponent implements OnInit{
   dialogoDiv:boolean = false;
   numeroBatalha!:number;
   batalhaRepetida!:number;
+  ligaAmadora!:boolean;
 
   vantagem: { [key: string]: string[] } = {
     Elétrico: ['Água', 'Voador'],
@@ -83,6 +84,7 @@ export class DueloComponent implements OnInit{
         this.inicioDiv = false;
         this.dialogoDiv = true;
       }, 4000)
+      this.ligaAmadora = this.batalhaService.ligaAmadora;
   }
   
 
@@ -136,6 +138,9 @@ export class DueloComponent implements OnInit{
             this.terminoPartida=true;
             this.perdeu=true;
           }, 4000);
+          if(this.ligaAmadora && !this.batalhaRepetida){
+              this.usuario.batalhaAtual = 16;
+          }
         }
       }
       this.indiceCartasOponente++;
