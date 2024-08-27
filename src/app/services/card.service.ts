@@ -106,7 +106,6 @@ export class CardService {
       if (!this.controleDeIndicesUsados.includes(num)) {
         this.controleDeIndicesUsados.push(num);
         this.deckInimigo.push(cards[num]);
-        console.log(cards[num]);
       }
     }
     return this.deckInimigo;
@@ -161,6 +160,29 @@ export class CardService {
       index++
     }*/
       return this.deckInimigo;
+  }
+
+  deckJessie():Card[]{
+    const deckAleatorio = this.deckMedioAleatorio();
+    let index = 0;
+    this.deckInimigo = []
+    while(this.deckInimigo.length < 20){
+      this.deckInimigo.push(this.cards[82]);
+      this.deckInimigo.push(deckAleatorio[index])
+      index++;
+    }
+    return this.deckInimigo;
+  }
+  deckJames():Card[]{
+    const deckAleatorio = this.deckMedioAleatorio();
+    let index = 0;
+    this.deckInimigo = []
+    while(this.deckInimigo.length < 20){
+      this.deckInimigo.push(this.cards[104]);
+      this.deckInimigo.push(deckAleatorio[index])
+      index++;
+    }
+    return this.deckInimigo;
   }
 
 
