@@ -1,0 +1,48 @@
+.container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, rgb(59, 119, 202) 0%, rgb(3, 27, 84) 100%);
+}
+.centro{
+    display: block;
+    width: 300px;
+    background-color: rgb(0, 0, 0, 0.5);
+    border: 1px solid white;
+    border-radius: 20px;
+    color: white;
+}
+.centro div{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+h1{
+    margin: 0px;
+    text-align: center;
+    font-size: 18px;
+}
+input{
+    width: 80%;
+    height: 50%;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 20px;
+}
+button{
+    width: 85%;
+    height: 45%;
+    background-color: rgb(0, 0, 0, 0.2);
+    border: 1px solid white;
+    border-radius: 20px;
+    color: white;
+}
+button:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+    background-color: rgb(0, 0, 0, 0.01);
+}
