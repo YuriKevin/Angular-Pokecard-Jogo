@@ -27,15 +27,19 @@ export class CampanhaComponent implements OnInit, AfterViewInit{
   constructor(private usuarioService:UsuarioService, private batalhaService:BatalhaService, private dialogoService:DialogoService, private cdRef: ChangeDetectorRef, private router:Router){}
 
   ngOnInit(): void {
+    if(!this.usuarioService.usuario){
+      this.router.navigate(['/cadastro']);
+    }
+    localStorage.setItem('usuario', JSON.stringify(this.usuarioService.usuario));
     const numeroBatalhaAtual = this.usuarioService.usuario.batalhaAtual; 
     if(numeroBatalhaAtual>20 && this.usuarioService.usuario.campeaoLigaAmadora==false){
       this.router.navigate(['/liga-amadora']);
     }
-    if(numeroBatalhaAtual>30 && this.usuarioService.usuario.campeaoLigaMundial==false){
+    else if(numeroBatalhaAtual>30 && this.usuarioService.usuario.campeaoLigaMundial==false){
       this.router.navigate(['/liga-mundial']);
     }
-    if(numeroBatalhaAtual>31 && this.usuarioService.usuario.derrotouGiovanni==false){
-      this.router.navigate(['/giovanni']);
+     else if(numeroBatalhaAtual>31 && this.usuarioService.usuario.derrotouGiovanni==false){
+      this.router.navigate(['/final']);
     }
     this.numeroBatalha = numeroBatalhaAtual;
     this.proximoOponente = this.batalhaService.batalhar(numeroBatalhaAtual);
