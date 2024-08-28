@@ -1,28 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Usuario } from '../model/usuario';
 import { Card } from '../model/card';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
-  usuario:Usuario = {
-    nome: 'Yuri',
-    cards: [],
-    deck: [],
-    imagem: 'ash.png',            
-    batalhaAtual: 31,
-    campeaoLigaAmadora: true,
-    campeaoLigaMundial: false,
-    derrotouGiovanni:false
-  };
+  usuario!:Usuario;
   
-  constructor() {
-    /*const usuarioString = localStorage.getItem('usuario');
+  constructor(private router:Router) {
+    const usuarioString = localStorage.getItem('usuario');
     if (usuarioString) {
       this.usuario = JSON.parse(usuarioString) as Usuario;
-    }*/
+    }
+    else{
+      this.router.navigate(['/cadastro']);
+    }
    }
+
 
   getUsuario():Usuario{
     return this.usuario;
