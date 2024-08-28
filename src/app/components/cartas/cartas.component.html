@@ -5,7 +5,11 @@
             <h1>Todas as cartas</h1>
         </div>
         <div class="flex">
-            <img *ngFor="let carta of cartasEstaoNoDeck"  [src]="caminhoImagem + carta.card.imagem" [ngClass]="{'nao-possui': !carta.contem}"  alt="Carta">
+            <img *ngFor="let carta of cartasEstaoNoDeck" (click)="cartaGrande(carta.card)" [src]="caminhoImagem + carta.card.imagem" [ngClass]="{'nao-possui': !carta.contem}"  alt="Carta">
         </div>
     </div>
 </div>
+<div class="carta-grande" *ngIf="cartaGrandeDiv">
+    <img src="{{cartaSelecionadaImagem}}" alt="cartaSelecionada.nome">
+</div>
+<div class="fechar" (click)="fecharCartaGrande()" *ngIf="cartaGrandeDiv"></div>

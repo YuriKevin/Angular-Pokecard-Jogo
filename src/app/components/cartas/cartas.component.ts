@@ -18,6 +18,8 @@ export class CartasComponent {
   cartasDoUsuario!:Card[];
   caminhoImagem:string = 'assets/images/cards/';
   cartasEstaoNoDeck:cardEstaNoDeck[] = [];
+  cartaGrandeDiv:boolean = false;
+  cartaSelecionadaImagem!:string;
 
 
   constructor(private cardService:CardService, private usuarioService:UsuarioService){
@@ -43,6 +45,17 @@ export class CartasComponent {
 
     });
 
+  }
+
+  cartaGrande(card:Card){
+    this.cartaSelecionadaImagem = card.imagem;
+    this.cartaSelecionadaImagem = this.caminhoImagem + this.cartaSelecionadaImagem;
+    console.log(this.cartaSelecionadaImagem);
+    this.cartaGrandeDiv = true;
+  }
+
+  fecharCartaGrande(){
+    this.cartaGrandeDiv = false;
   }
 
 }
