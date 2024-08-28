@@ -39,7 +39,12 @@ export class TreinadoresComponent implements OnInit{
     23: 'bruno.png',
     24: 'agatha.png',
     25: 'lance.png',
-    100: 'ash.png'
+    26: 'steven.png',
+    27: 'diantha.png',
+    28: 'cynthia.png',
+    29: 'leon.png',
+    30: 'ash.png',
+    31: 'giovanni.png',
   };
   possui:string[] = [];
   naoPossui:string[] = []
