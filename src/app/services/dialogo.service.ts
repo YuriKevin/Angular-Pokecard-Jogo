@@ -112,6 +112,30 @@ export class DialogoService {
         return this.batalha25();
       break;
 
+      case 26:
+        return this.batalha26();
+      break;
+
+      case 27:
+        return this.batalha27();
+      break;
+
+      case 28:
+        return this.batalha28();
+      break;
+
+      case 29:
+        return this.batalha29();
+      break;
+
+      case 30:
+        return this.batalha30();
+      break;
+
+      case 31:
+        return this.batalha31();
+      break;
+
       default:
         return this.batalha1();
     }
@@ -246,7 +270,7 @@ export class DialogoService {
   batalha23():string[]{
     this.dialogo.push('O que um cara como você acha que está fazendo?');
     this.dialogo.push('Por acaso nunca ouviu falar sobre o potencial dos treinadores da Elite Four?');
-    this.dialogo.push('Somos os 4 melhores treinadores da região, e guardiões da liga profissional.');
+    this.dialogo.push('Somos os 4 melhores treinadores da região, e guardiões da liga mundial.');
     this.dialogo.push('Sua jornada acaba aqui.');
     return this.dialogo;
   }
@@ -260,11 +284,55 @@ export class DialogoService {
   batalha25():string[]{
     this.dialogo.push('Eu sou o Koga.');
     this.dialogo.push('O último desafiante da Elite Four.');
-    this.dialogo.push('Você está a um passo da liga profissional.');
+    this.dialogo.push('Você está a um passo da liga mundial.');
     this.dialogo.push('Mas será o passo mais difícil, sinto muito.');
     return this.dialogo;
   }
-
+  batalha26():string[]{
+    this.dialogo.push('Bem-vindo a liga mundial!');
+    this.dialogo.push('Todos os olhos do mundo estão voltados para esse lugar');
+    this.dialogo.push('Sua primeira batalha será comigo.');
+    this.dialogo.push('Está pronto?');
+    return this.dialogo;
+  }
+  batalha27():string[]{
+    this.dialogo.push('Eu sou Diantha.');
+    this.dialogo.push('Parece que você é o queridinho da torcida este ano.');
+    this.dialogo.push('Eles gritam seu nome...');
+    this.dialogo.push('Mas não vai ser a primeira vez que eu derroto um favorito.');
+    this.dialogo.push('VAMOS!');
+    return this.dialogo;
+  }
+  batalha28():string[]{
+    this.dialogo.push('Chegou longe gafanhoto.');
+    this.dialogo.push('Estou ansiosa para ver do que você é capaz!');
+    return this.dialogo;
+  }
+  batalha29():string[]{
+    this.dialogo.push('Gosta do clima de uma semi-final?');
+    this.dialogo.push('Espero que não esteja pressionado.');
+    this.dialogo.push('Mas não se preocupe! Vou acabar com isso rápido.');
+    this.dialogo.push('Prepare seus pokémons para disputar o terceiro lugar.');
+    return this.dialogo;
+  }
+  batalha30():string[]{
+    this.dialogo.push('Então você é o famoso novato da Liga Mundial!');
+    this.dialogo.push('Estou feliz em conhecê-lo.');
+    this.dialogo.push('Será uma honra batalhar com você!.');
+    this.dialogo.push('Vamos fazer dessa final a melhor de todas!');
+    this.dialogo.push('Afinal, começamos da mesma forma. Temos muito em comum...');
+    this.dialogo.push('Chegou a hora!');
+    return this.dialogo;
+  }
+  batalha31():string[]{
+    this.dialogo.push('Com o Eternatus em mãos, nada poderá me deter.');
+    this.dialogo.push('Meu plano? Sequestrar todos os pokémons do planeta.');
+    this.dialogo.push('As pessoas ficarão sem seus pokémons...');
+    this.dialogo.push('Enquanto eu terei todos eles...');
+    this.dialogo.push('Então todos irão me servir.');
+    this.dialogo.push('O fim chegou!');
+    return this.dialogo;
+  }
   retornarDialogoCampanha(numeroBatalha:number):string[]{
     this.dialogo = [];
     switch(numeroBatalha){
@@ -298,7 +366,15 @@ export class DialogoService {
 
       case 26:
         return this.campanha26();
+      break;
       
+      case 30:
+        return this.campanha30();
+      break;
+
+      case 31:
+        return this.campanha31();
+      break;
     }
     
     return this.dialogo;
@@ -374,14 +450,38 @@ export class DialogoService {
     this.dialogo.push('O grande campeão da liga amadora de pokémon!');
     this.dialogo.push('A partir de agora você esta por si só, mas...');
     this.dialogo.push('Se quer um palpite, deveria enfrentar os lendários treinadores da "Elite Four".');
-    this.dialogo.push('Ao vencê-los, você consegue se candidatar a Liga Profissional de Pokémon.');
+    this.dialogo.push('Ao vencê-los, você consegue se candidatar a Liga mundial de Pokémon.');
     this.dialogo.push('Aproveite sua vitória!');
     return this.dialogo;
   }
   campanha26():string[]{
     this.personagemAtual = 'lance.png';
-    this.dialogo.push('Agora que venceu todos os membros da Elite Four você conseguiu o passe para entrar na liga profissional.');
-    this.dialogo.push('Não se esqueça que uma derrota na liga e você volta pro início.');
+    this.dialogo.push('Agora que venceu todos os membros da Elite Four você conseguiu o passe para entrar na liga mundial.');
+    this.dialogo.push('Boa sorte!');
+    return this.dialogo;
+  }
+  campanha30():string[]{
+    this.personagemAtual = 'professor.png';
+    this.dialogo.push('Meu velho amigo!');
+    this.dialogo.push('Que felicidade prestigiar a sua primeira final da liga pokémon mundial!');
+    this.dialogo.push('Vai ser uma batalha muito interessante.');
+    this.dialogo.push('Não esperava nada menos do Ash nessa final, pela terceira vez consecutiva.');
+    this.dialogo.push('Campeão duas vezes da Liga Mndial.')
+    this.dialogo.push('Ash é um velho conhecido. O treinador mais obstinado que já conheci. Sempre batalha com honra.')
+    this.dialogo.push('Boa sorte!');
+    this.dialogo.push('Será um espetáculo.');
+    return this.dialogo;
+  }
+  campanha31():string[]{
+    this.personagemAtual = 'ash.png';
+    this.dialogo.push('Precisamos conversar.');
+    this.dialogo.push('O mundo está em perigo.');
+    this.dialogo.push('Giovanni, chefe da equipe Rocket, conseguiu invocar um Eternatus V Max.');
+    this.dialogo.push('Este pokémon é o mais forte do nosso mundo.');
+    this.dialogo.push('Ele está aterrorizando pessoas em todo o continente...');
+    this.dialogo.push('Você é o atual campeão mundial, o único que pode impedi-lo.');
+    this.dialogo.push('Contamos com você.');
+    this.dialogo.push('Boa sorte!');
     return this.dialogo;
   }
   
