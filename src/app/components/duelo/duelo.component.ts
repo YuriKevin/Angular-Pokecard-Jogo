@@ -213,8 +213,8 @@ export class DueloComponent implements OnInit{
   ajuda(){
     if(this.ajudaUtilizada==false){
       this.ajudaUtilizada = true;
+      this.cartaEscolhida(this.cardService.cartaAjuda);
     }
-    this.cartaEscolhida(this.cardService.cartaAjuda);
   }
 
 }
