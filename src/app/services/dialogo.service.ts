@@ -136,6 +136,10 @@ export class DialogoService {
         return this.batalha31();
       break;
 
+      case 0:
+        return this.dialogoFinal();
+      break;
+
       default:
         return this.batalha1();
     }
@@ -487,6 +491,15 @@ export class DialogoService {
     this.dialogo.push('Boa sorte!');
     return this.dialogo;
   }
-  
+  dialogoFinal(){
+    this.personagemAtual = 'ash.png';
+    this.dialogo.push('O mundo está gritando seu nome!');
+    this.dialogo.push('Não há palavras para agradecer o que você fez hoje.');
+    this.dialogo.push('Você ganhará uma estátua de herói lendário no grande museu da Liga Mundial.');
+    this.dialogo.push('Afinal, agora você é um treinador lendário.');
+    this.dialogo.push('O mundo pode descansar enquanto você estiver conosco.');
+    this.dialogo.push('Esse é o nosso adeus. Obrigado por fazer parte da sua jornada ser a nossa.');
+    return this.dialogo;
+  }
 
 }
