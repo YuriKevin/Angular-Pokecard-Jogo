@@ -1,5 +1,8 @@
 <div class="dialogo" *ngIf="mostrarDiv">
     <div class="dialogo-centro">
+        <div class="dialogo-continuar pular">
+            <button (click)="pularDialogo()">Pular</button>
+        </div>
         <div class="dialogo-continuar">
             <button (click)="proximaMensagem()">Continuar</button>
         </div>
