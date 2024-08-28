@@ -46,4 +46,8 @@ export class DialogoComponent implements OnInit{
       this.mostrarDiv = false;
     }
   }
+
+  pularDialogo(){
+    this.mostrarDiv = false;
+  }
 }
