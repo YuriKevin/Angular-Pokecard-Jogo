@@ -13,7 +13,7 @@ export class UsuarioService {
     imagem: 'ash.png',            
     batalhaAtual: 31,
     campeaoLigaAmadora: true,
-    campeaoLigaProfissional: false,
+    campeaoLigaMundial: false,
     derrotouGiovanni:false
   };
   
