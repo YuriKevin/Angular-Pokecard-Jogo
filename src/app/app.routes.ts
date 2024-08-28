@@ -10,6 +10,7 @@ import { LigaAmadoraComponent } from './components/liga-amadora/liga-amadora.com
 import { LigaMundialComponent } from './components/liga-mundial/liga-mundial.component';
 import { GiovanniComponent } from './components/giovanni/giovanni.component';
 import { CadastroComponent } from './components/cadastro/cadastro.component';
+import { ContaComponent } from './components/conta/conta.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -23,4 +24,5 @@ export const routes: Routes = [
     { path: 'liga-amadora', component: LigaAmadoraComponent },
     { path: 'liga-mundial', component: LigaMundialComponent },
     { path: 'final', component: GiovanniComponent },
+    { path: 'conta', component: ContaComponent },
 ]
