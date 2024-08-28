@@ -1,1 +1,9 @@
-<p>giovanni works!</p>
+<div class="container"></div>
+<div class="animacao">
+    <h1>Você salvou o mundo!</h1>
+</div>
+<div class="todos" *ngIf="todosDiv">
+    <img src="assets/images/personagens/todos.png" alt="Todos os treinadores">
+</div>
+<app-dialogo class="dialogo" [numeroBatalha]="0" [imagemDialogo]="'ash.png'" *ngIf="dialogoDiv"></app-dialogo>
+<button [routerLink]="['/campanha']" *ngIf="voltarDiv">Voltar</button>
