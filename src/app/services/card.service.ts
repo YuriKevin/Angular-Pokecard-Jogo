@@ -13,7 +13,7 @@ export class CardService {
 
 
   deckInicial(){
-    const cartasFiltradas = this.cards.filter(card => card.raridade == "Comum");
+    const cartasFiltradas = this.cards.filter(card => card.forca <=100);
     return this.gerarCartasAleatorias(cartasFiltradas);
   }
 
@@ -283,6 +283,7 @@ export class CardService {
     return array;
   }
 
+  
 
 
 
@@ -650,7 +651,7 @@ export class CardService {
       id: 45,
       nome: 'Ninetales',
       imagem: '45.png',
-      forca: 80,
+      forca: 200,
       elemento: 'Fogo',
       raridade: 'Rara'
     };
@@ -1020,7 +1021,7 @@ export class CardService {
       id: 90,
       nome: 'Taurus',
       imagem: '90.png',
-      forca: 100,
+      forca: 130,
       elemento: 'Lutador',
       raridade: 'Comum'
     };
