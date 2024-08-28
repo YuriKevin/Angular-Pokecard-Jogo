@@ -99,8 +99,22 @@ export class CardService {
 
     this.deckInimigo = [];
     this.controleDeIndicesUsados = [];
-
     while (this.deckInimigo.length < 20) {
+      let num = getRandomInt(cards.length);
+
+      if (!this.controleDeIndicesUsados.includes(num)) {
+        this.controleDeIndicesUsados.push(num);
+        this.deckInimigo.push(cards[num]);
+      }
+    }
+    return this.deckInimigo;
+  }
+  gerarCartasAleatoriasLendarias(cards:Card[]): Card[]{
+    const getRandomInt = (max: number) => Math.floor(Math.random() * max);
+
+    this.deckInimigo = [];
+    this.controleDeIndicesUsados = [];
+    while (this.deckInimigo.length < 15) {
       let num = getRandomInt(cards.length);
 
       if (!this.controleDeIndicesUsados.includes(num)) {
@@ -141,8 +155,8 @@ export class CardService {
     return this.gerarCartasAleatorias(cartasFiltradas);
   }
   deckLendarioAleatorio(): Card[] {
-    const cartasFiltradas = this.cards.filter(card => card.forca > 260);
-    return this.gerarCartasAleatorias(cartasFiltradas);
+    const cartasFiltradas = this.cards.filter(card => card.raridade == 'Lendária');
+    return this.gerarCartasAleatoriasLendarias(cartasFiltradas);
   }
 
   deckLideresDeGinasio(elemento:string){
@@ -235,18 +249,39 @@ export class CardService {
       this.deckInimigo.push(this.cards[154]);
       this.deckInimigo.push(this.cards[154]);
       this.deckInimigo.push(this.cards[67]);
+    } 
+    return this.embaralhar(this.deckInimigo);
+  }
+
+  deckAsh(){
+    this.deckInimigo = []
+    this.deckInimigo.push(this.cards[15]);
+    this.deckInimigo.push(this.cards[32]);
+    this.deckInimigo.push(this.cards[49]);
+    this.deckInimigo.push(this.cards[50]);
+    this.deckInimigo.push(this.cards[66]);
+    this.deckInimigo.push(this.cards[67]);
+    this.deckInimigo.push(this.cards[84]);
+    this.deckInimigo.push(this.cards[118]);
+    return this.embaralhar(this.deckInimigo);
+  }
+  deckGiovanni(){
+    this.deckInimigo = []
+    for(let i = 0; i < 15; i++){
+      this.deckInimigo.push(this.cards[119]);
+      this.deckInimigo.push(this.gerarCartaLendaria());
     }
-    const embaralhar = (array: Card[]): Card[] => {
-      for (let i = array.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [array[i], array[j]] = [array[j], array[i]];
-      }
-      return array;
-  };
-    return embaralhar(this.deckInimigo);
+    return this.deckInimigo;
   }
 
 
+  embaralhar = (array: Card[]): Card[] => {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
 
 
 
