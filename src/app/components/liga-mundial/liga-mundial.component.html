@@ -1,1 +1,20 @@
-<p>liga-mundial works!</p>
+<div class="container"></div>
+<div class="quadro parabens" *ngIf="parabensDiv">
+    <div>
+        <h1>Você é o grande campeão mundial!</h1>
+    </div>
+</div>
+<div class="quadro recompensas" *ngIf="recompensasDiv">
+    <div class="block">
+        <div class="titulo">
+            <h1>Recompensas</h1>
+        </div>
+        <div class="imagem">
+            <h1 *ngIf="!mostrarImagemRecompensa">Todas as cartas foram liberadas!</h1>
+            <img src="{{imagemRecompensa}}" alt="Recompensa" *ngIf="mostrarImagemRecompensa">
+        </div>
+        <div class="botao">
+            <button (click)="recompensas()">Continuar</button>
+        </div>
+    </div>
+</div>
