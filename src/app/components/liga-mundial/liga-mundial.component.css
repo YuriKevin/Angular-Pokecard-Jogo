@@ -1,0 +1,209 @@
+.container{
+    background-image: url('../../../../public/assets/images/mundial.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    animation: aparecer 3s forwards;
+}
+.quadro{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0, 0, 0, 0.5);
+}
+.parabens div{
+    background-color: rgb(0, 0, 0, 0.5);
+    padding: 10px;
+    font-size: 15px;
+    border: 3px solid white;
+    border-radius: 10px;
+    color: white;
+}
+.block{
+    display: block;
+    width: 300px;
+    height: 500px;
+    background-color: white;
+    border-radius: 10px;
+    color:black;
+    overflow: hidden;
+}
+.block > *{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.titulo{
+    height: 100px;
+    font-size: 12px;
+    height: 100px;
+}
+.imagem{
+    height: 350px;
+}
+.imagem img{
+    height: 300px;
+}
+.imagem h1{
+    margin: 0px;
+    font-size: 15px;
+}
+.botao{
+    height: 50px;
+}
+.botao button{
+    width: 80%;
+    height: 70%;
+    background-color: rgba(0, 125, 0, 0.7);
+    border: 1px solid black;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+button:hover{
+    transform: scale(1.1);
+}
+@keyframes desaparecer {
+    0% {
+        opacity: 1;
+    }
+    5% {
+        opacity: 0.95;
+    }
+    10% {
+        opacity: 0.90;
+    }
+    15% {
+        opacity: 0.85;
+    }
+    20% {
+        opacity: 0.80;
+    }
+    25% {
+        opacity: 0.75;
+    }
+    30% {
+        opacity: 0.70;
+    }
+    35% {
+        opacity: 0.65;
+    }
+    40% {
+        opacity: 0.60;
+    }
+    45% {
+        opacity: 0.55;
+    }
+    50% {
+        opacity: 0.50;
+    }
+    55% {
+        opacity: 0.45;
+    }
+    60% {
+        opacity: 0.40;
+    }
+    65% {
+        opacity: 0.35;
+    }
+    70% {
+        opacity: 0.30;
+    }
+    75% {
+        opacity: 0.25;
+    }
+    80% {
+        opacity: 0.20;
+    }
+    85% {
+        opacity: 0.15;
+    }
+    90% {
+        opacity: 0.10;
+    }
+    95% {
+        opacity: 0.05;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@keyframes aparecer {
+    100% {
+        opacity: 1;
+    }
+    95% {
+        opacity: 0.95;
+    }
+    90% {
+        opacity: 0.90;
+    }
+    85% {
+        opacity: 0.85;
+    }
+    80% {
+        opacity: 0.80;
+    }
+    75% {
+        opacity: 0.75;
+    }
+    70% {
+        opacity: 0.70;
+    }
+    65% {
+        opacity: 0.65;
+    }
+    60% {
+        opacity: 0.60;
+    }
+    55% {
+        opacity: 0.55;
+    }
+    50% {
+        opacity: 0.50;
+    }
+    45% {
+        opacity: 0.45;
+    }
+    40% {
+        opacity: 0.40;
+    }
+    35% {
+        opacity: 0.35;
+    }
+    30% {
+        opacity: 0.30;
+    }
+    25% {
+        opacity: 0.25;
+    }
+    20% {
+        opacity: 0.20;
+    }
+    15% {
+        opacity: 0.15;
+    }
+    10% {
+        opacity: 0.10;
+    }
+    5% {
+        opacity: 0.05;
+    }
+    0% {
+        opacity: 0;
+    }
+}
+@media(max-width: 700px){
+    .parabens div{
+        font-size: 12px;
+        text-align: center;
+    }
+}
