@@ -117,8 +117,32 @@ export class BatalhaService {
       return this.batalha25();
       break;
 
+      case 26:
+      return this.batalha26();
+      break;
+
+      case 27:
+      return this.batalha27();
+      break;
+
+      case 28:
+      return this.batalha28();
+      break;
+
+      case 29:
+      return this.batalha29();
+      break;
+
+      case 30:
+      return this.batalha30();
+      break;
+
+      case 31:
+      return this.batalha31();
+      break;
+
       default:
-        return this.batalha1();
+        return this.batalha32();
     }
   }
 
@@ -202,6 +226,27 @@ export class BatalhaService {
   batalha25(){
     return this.treinadorAtual = this.gerarTreinadorEliteFour('Lance', 'lance.png', 'Lance é o treinador com mais lendários do clã voador');
   }
+  batalha26(){
+    return this.treinadorAtual = this.gerarOponenteLendario('Steven', 'steven.png', 'Na liga mundial só há lendários.');
+  }
+  batalha27(){
+    return this.treinadorAtual = this.gerarOponenteLendario('Diantha', 'diantha.png', 'Na liga mundial só há lendários.');
+  }
+  batalha28(){
+    return this.treinadorAtual = this.gerarOponenteLendario('Cynthia', 'cynthia.png', 'Na liga mundial só há lendários.');
+  }
+  batalha29(){
+    return this.treinadorAtual = this.gerarOponenteLendario('Leon', 'leon.png', 'Na liga mundial só há lendários.');
+  }
+  batalha30(){
+    return this.treinadorAtual = this.gerarAsh();
+  }
+  batalha31(){
+    return this.treinadorAtual = this.gerarGiovanni();
+  }
+  batalha32(){
+    return this.treinadorAtual = this.gerarOponenteLendario('Ash Ketchum', 'ash.png', 'Você finalizou o modo campanha, Parabéns!');
+  }
 
   gerarTreinadorShadow(dificuldade:String):Treinador{
     if(dificuldade='Fácil'){
@@ -267,7 +312,7 @@ export class BatalhaService {
   gerarTreinadorEliteFour(nome:string, imagem:string, dica:string){
     return this.treinadorAtual = {
       nome: nome,
-      dificuldade: 'Difícil',
+      dificuldade: 'lendário',
       deck: this.cardService.deckEliteFour(nome),
       imagem: imagem,
       dica: dica
@@ -290,6 +335,35 @@ export class BatalhaService {
       deck: this.cardService.deckJames(),
       imagem: 'james.png',
       dica: 'Jessie adora Weezing.'
+    };
+  }
+
+  gerarOponenteLendario(nome:string, imagem:string, dica:string){
+    return this.treinadorAtual = {
+      nome: nome,
+      dificuldade: 'Lendário',
+      deck: this.cardService.deckLendarioAleatorio(),
+      imagem: imagem,
+      dica: dica
+    };
+  }
+
+  gerarAsh(){
+    return this.treinadorAtual = {
+      nome: 'Ash Ketchum',
+      dificuldade: 'Lendário',
+      deck: this.cardService.deckAsh(),
+      imagem: 'ash.png',
+      dica: 'Esta é a final da Liga Mundial de Pokémon'
+    };
+  }
+  gerarGiovanni(){
+    return this.treinadorAtual = {
+      nome: 'Giovanni',
+      dificuldade: 'Lendário',
+      deck: this.cardService.deckGiovanni(),
+      imagem: 'giovanni.png',
+      dica: 'Giovanni vai dominar o mundo, você é o único que pode impedi-lo.'
     };
   }
 
