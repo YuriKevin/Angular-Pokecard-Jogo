@@ -40,6 +40,7 @@ export class LigaAmadoraComponent implements OnInit{
       this.cards.push(this.cardService.novaCarta('Difícil'));
       
       this.usuarioService.usuario.campeaoLigaAmadora = true;
+      localStorage.setItem('usuario', JSON.stringify(this.usuarioService.usuario));
   }
 
   fecharTrofeu(){
