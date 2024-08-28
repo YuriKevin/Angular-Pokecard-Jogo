@@ -7,6 +7,6 @@ export interface Usuario{
     batalhaAtual:number;
     imagem:string;
     campeaoLigaAmadora: boolean;
-    campeaoLigaProfissional:boolean;
+    campeaoLigaMundial:boolean;
     derrotouGiovanni:boolean;
 }
