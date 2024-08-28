@@ -31,6 +31,12 @@ export class CampanhaComponent implements OnInit, AfterViewInit{
     if(numeroBatalhaAtual>20 && this.usuarioService.usuario.campeaoLigaAmadora==false){
       this.router.navigate(['/liga-amadora']);
     }
+    if(numeroBatalhaAtual>30 && this.usuarioService.usuario.campeaoLigaMundial==false){
+      this.router.navigate(['/liga-mundial']);
+    }
+    if(numeroBatalhaAtual>31 && this.usuarioService.usuario.derrotouGiovanni==false){
+      this.router.navigate(['/giovanni']);
+    }
     this.numeroBatalha = numeroBatalhaAtual;
     this.proximoOponente = this.batalhaService.batalhar(numeroBatalhaAtual);
     const caminhoBaseImagem = 'assets/images/personagens/';
