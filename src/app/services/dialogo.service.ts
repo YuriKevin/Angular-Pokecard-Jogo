@@ -96,6 +96,22 @@ export class DialogoService {
         return this.batalha21();
       break;
 
+      case 22:
+        return this.batalha22();
+      break;
+
+      case 23:
+        return this.batalha23();
+      break;
+
+      case 24:
+        return this.batalha24();
+      break;
+
+      case 25:
+        return this.batalha25();
+      break;
+
       default:
         return this.batalha1();
     }
@@ -221,6 +237,33 @@ export class DialogoService {
     this.dialogo.push('O ENTREGUE!');
     return this.dialogo;
   }
+  batalha22():string[]{
+    this.dialogo.push('Sou Lorelei, da Elite Four.');
+    this.dialogo.push('Você só ganhou uma liga amadora e já se acha forte o suficiente pra nos enfrentar?');
+    this.dialogo.push('Sinto um banho de água fria se aproximando...');
+    return this.dialogo;
+  }
+  batalha23():string[]{
+    this.dialogo.push('O que um cara como você acha que está fazendo?');
+    this.dialogo.push('Por acaso nunca ouviu falar sobre o potencial dos treinadores da Elite Four?');
+    this.dialogo.push('Somos os 4 melhores treinadores da região, e guardiões da liga profissional.');
+    this.dialogo.push('Sua jornada acaba aqui.');
+    return this.dialogo;
+  }
+  batalha24():string[]{
+    this.dialogo.push('Acho que já nos enfrentamos...');
+    this.dialogo.push('Me lembrei. No ginásio sombrio.');
+    this.dialogo.push('Agora as coisas estão diferentes, lá não usei minhas cartas especiais...');
+    this.dialogo.push('Você tem medo de assombrações?');
+    return this.dialogo;
+  }
+  batalha25():string[]{
+    this.dialogo.push('Eu sou o Koga.');
+    this.dialogo.push('O último desafiante da Elite Four.');
+    this.dialogo.push('Você está a um passo da liga profissional.');
+    this.dialogo.push('Mas será o passo mais difícil, sinto muito.');
+    return this.dialogo;
+  }
 
   retornarDialogoCampanha(numeroBatalha:number):string[]{
     this.dialogo = [];
@@ -252,6 +295,9 @@ export class DialogoService {
       case 21:
         return this.campanha21();
       break;
+
+      case 26:
+        return this.campanha26();
       
     }
     
@@ -328,8 +374,16 @@ export class DialogoService {
     this.dialogo.push('O grande campeão da liga amadora de pokémon!');
     this.dialogo.push('A partir de agora você esta por si só, mas...');
     this.dialogo.push('Se quer um palpite, deveria enfrentar os lendários treinadores da "Elite Four".');
+    this.dialogo.push('Ao vencê-los, você consegue se candidatar a Liga Profissional de Pokémon.');
     this.dialogo.push('Aproveite sua vitória!');
     return this.dialogo;
   }
+  campanha26():string[]{
+    this.personagemAtual = 'lance.png';
+    this.dialogo.push('Agora que venceu todos os membros da Elite Four você conseguiu o passe para entrar na liga profissional.');
+    this.dialogo.push('Não se esqueça que uma derrota na liga e você volta pro início.');
+    return this.dialogo;
+  }
+  
 
 }
