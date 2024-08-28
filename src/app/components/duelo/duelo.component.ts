@@ -116,6 +116,7 @@ export class DueloComponent implements OnInit{
         cardPerdedor?.classList.add('perdeu');
 
         if (this.pontosUsuario === 7) {
+          localStorage.setItem('usuario', JSON.stringify(this.usuarioService.usuario));
           setTimeout(() => {
             this.jogadaDiv=false;
             this.terminoPartida=true;
@@ -199,6 +200,7 @@ export class DueloComponent implements OnInit{
     this.jogadaDiv = false;
     this.abrirCartaDiv = true;
     const card:Card = this.cardService.novaCarta(this.oponente.dificuldade);
+    localStorage.setItem('usuario', JSON.stringify(this.usuarioService.usuario));
     setTimeout(()=>{
       this.novaCartaCaminho = "assets/images/cards/"+card.imagem;
     },5000);
