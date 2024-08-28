@@ -8,4 +8,5 @@ export interface Usuario{
     imagem:string;
     campeaoLigaAmadora: boolean;
     campeaoLigaProfissional:boolean;
+    derrotouGiovanni:boolean;
 }
