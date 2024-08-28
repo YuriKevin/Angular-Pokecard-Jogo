@@ -101,6 +101,22 @@ export class BatalhaService {
       return this.batalha21();
       break;
 
+      case 22:
+      return this.batalha22();
+      break;
+
+      case 23:
+      return this.batalha23();
+      break;
+
+      case 24:
+      return this.batalha24();
+      break;
+
+      case 25:
+      return this.batalha25();
+      break;
+
       default:
         return this.batalha1();
     }
@@ -174,6 +190,18 @@ export class BatalhaService {
   batalha21(){
     return this.treinadorAtual = this.gerarOponenteDificil('Jessie & James', 'jessiejames.png');
   }
+  batalha22(){
+    return this.treinadorAtual = this.gerarTreinadorEliteFour('Lorelei', 'lorelei.png', 'A lenda diz que Lorelei possui um dos cães lendários.');
+  }
+  batalha23(){
+    return this.treinadorAtual = this.gerarTreinadorEliteFour('Bruno', 'bruno.png', 'Caso não esteja conseguindo avançar, batalhe com Lorelei na aba "treinadores" para obter mais lendárias.');
+  }
+  batalha24(){
+    return this.treinadorAtual = this.gerarTreinadorEliteFour('Agatha', 'agatha.png', 'Caso não esteja conseguindo avançar, batalhe com Lorelei na aba "treinadores" para obter mais lendárias.');
+  }
+  batalha25(){
+    return this.treinadorAtual = this.gerarTreinadorEliteFour('Lance', 'lance.png', 'Lance é o treinador com mais lendários do clã voador');
+  }
 
   gerarTreinadorShadow(dificuldade:String):Treinador{
     if(dificuldade='Fácil'){
@@ -230,10 +258,19 @@ export class BatalhaService {
   gerarOponenteDificil(nome:string, imagem:string){
     return this.treinadorAtual = {
       nome: nome,
-      dificuldade: 'Médio',
+      dificuldade: 'Difícil',
       deck: this.cardService.deckDificilAleatorio(),
       imagem: imagem,
       dica: 'A liga pokémon não libera dicas. Seus participantes normalmente possuem uma vasta quantidade de pokémons.'
+    };
+  }
+  gerarTreinadorEliteFour(nome:string, imagem:string, dica:string){
+    return this.treinadorAtual = {
+      nome: nome,
+      dificuldade: 'Difícil',
+      deck: this.cardService.deckEliteFour(nome),
+      imagem: imagem,
+      dica: dica
     };
   }
 
