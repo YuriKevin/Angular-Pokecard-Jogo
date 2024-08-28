@@ -325,6 +325,9 @@ export class DialogoService {
     return this.dialogo;
   }
   batalha31():string[]{
+    this.dialogo.push('Então você é o famoso campeão da Liga Mundial...');
+    this.dialogo.push('O treinador mais forte do mundo.');
+    this.dialogo.push('Ou o segundo, já que agora eu tenho um novo brinquedinho...');
     this.dialogo.push('Com o Eternatus em mãos, nada poderá me deter.');
     this.dialogo.push('Meu plano? Sequestrar todos os pokémons do planeta.');
     this.dialogo.push('As pessoas ficarão sem seus pokémons...');
