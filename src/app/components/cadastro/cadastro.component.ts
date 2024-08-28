@@ -5,6 +5,7 @@ import { Usuario } from '../../model/usuario';
 import { Router } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 import { UsuarioService } from '../../services/usuario.service';
+import { CardService } from '../../services/card.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -17,7 +18,7 @@ export class CadastroComponent {
   nome:string=''
   usuario!:Usuario;
 
-  constructor(private router:Router, private usuarioService:UsuarioService){
+  constructor(private router:Router, private usuarioService:UsuarioService, private cardService:CardService){
 
   }
 
@@ -26,7 +27,7 @@ export class CadastroComponent {
       this.usuario = {
         nome: this.nome,
         cards: [],
-        deck: [],
+        deck: this.cardService.deckInicial(),
         imagem: 'shadow.png',            
         batalhaAtual: 1,
         campeaoLigaAmadora: false,
