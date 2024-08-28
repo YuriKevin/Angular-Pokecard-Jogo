@@ -1,1 +1,13 @@
-<p>cadastro works!</p>
+<div class="container">
+    <div class="centro">
+        <div>
+            <h1>Escolha seu nome de treinador</h1>
+        </div>
+        <div>
+            <input type="text" maxlength="12" [(ngModel)]="nome">
+        </div>
+        <div>
+            <button (click)="cadastrar()">Confirmar</button>
+        </div>
+    </div>
+</div>
