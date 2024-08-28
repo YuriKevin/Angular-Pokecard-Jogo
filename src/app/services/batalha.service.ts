@@ -245,7 +245,7 @@ export class BatalhaService {
     return this.treinadorAtual = this.gerarGiovanni();
   }
   batalha32(){
-    return this.treinadorAtual = this.gerarOponenteLendario('Ash Ketchum', 'ash.png', 'Você finalizou o modo campanha, Parabéns!');
+    return this.treinadorAtual = this.gerarOponenteLendario('Ash Ketchum', 'ash.png', 'Você finalizou o modo campanha. Parabéns!');
   }
 
   gerarTreinadorShadow(dificuldade:String):Treinador{
