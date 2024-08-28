@@ -185,6 +185,67 @@ export class CardService {
     return this.deckInimigo;
   }
 
+  deckEliteFour(nome:string):Card[]{
+    this.deckInimigo = []
+    if(nome=='Lorelei'){
+      this.deckInimigo.push(this.cards[67]);
+      this.deckInimigo.push(this.cards[61])
+      this.deckInimigo.push(this.cards[62]);
+      this.deckInimigo.push(this.cards[67]);
+      this.deckInimigo.push(this.cards[63]);
+      this.deckInimigo.push(this.cards[64]);
+      this.deckInimigo.push(this.cards[65]);
+      this.deckInimigo.push(this.cards[67]);
+    }
+    else if(nome=='Bruno'){
+      this.deckInimigo.push(this.cards[101]);
+      this.deckInimigo.push(this.cards[101]);
+      this.deckInimigo.push(this.cards[101]);
+      this.deckInimigo.push(this.cards[101]);
+      this.deckInimigo.push(this.cards[101]);
+      this.deckInimigo.push(this.cards[101]);
+      this.deckInimigo.push(this.cards[85]);
+      this.deckInimigo.push(this.cards[96]);
+      this.deckInimigo.push(this.cards[94]);
+      this.deckInimigo.push(this.cards[95]);
+      this.deckInimigo.push(this.cards[96]);
+      this.deckInimigo.push(this.cards[98]);
+    }
+    else if(nome=='Agatha'){
+      this.deckInimigo.push(this.cards[112]);
+      this.deckInimigo.push(this.cards[113]);
+      this.deckInimigo.push(this.cards[114]);
+      this.deckInimigo.push(this.cards[115]);
+      this.deckInimigo.push(this.cards[116]);
+      this.deckInimigo.push(this.cards[117]);
+      this.deckInimigo.push(this.cards[118]);
+      this.deckInimigo.push(this.cards[118]);
+      this.deckInimigo.push(this.cards[118]);
+      this.deckInimigo.push(this.cards[118]);
+      this.deckInimigo.push(this.cards[118]);
+      this.deckInimigo.push(this.cards[118]);
+    }
+    else{
+      this.deckInimigo.push(this.cards[49]);
+      this.deckInimigo.push(this.cards[67]);
+      this.deckInimigo.push(this.cards[150]);
+      this.deckInimigo.push(this.cards[151]);
+      this.deckInimigo.push(this.cards[152]);
+      this.deckInimigo.push(this.cards[153]);
+      this.deckInimigo.push(this.cards[154]);
+      this.deckInimigo.push(this.cards[154]);
+      this.deckInimigo.push(this.cards[67]);
+    }
+    const embaralhar = (array: Card[]): Card[] => {
+      for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+  };
+    return embaralhar(this.deckInimigo);
+  }
+
 
 
 
