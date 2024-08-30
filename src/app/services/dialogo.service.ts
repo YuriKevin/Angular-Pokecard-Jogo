@@ -423,8 +423,8 @@ export class DialogoService {
     this.dialogo.push('Meu velho amigo!');
     this.dialogo.push('Que felicidade prestigiar a sua primeira final da liga pokémon mundial!');
     this.dialogo.push('Vai ser uma batalha muito interessante.');
-    this.dialogo.push('Não esperava nada menos do Ash nessa final, pela terceira vez consecutiva.');
-    this.dialogo.push('Campeão duas vezes da Liga Mndial.')
+    this.dialogo.push('Não esperava nada menos do que o Ash nessa final, pela terceira vez consecutiva.');
+    this.dialogo.push('Campeão duas vezes da Liga Mundial.')
     this.dialogo.push('Ash é um velho conhecido. O treinador mais obstinado que já conheci. Sempre batalha com honra.')
     this.dialogo.push('Boa sorte!');
     this.dialogo.push('Será um espetáculo.');
