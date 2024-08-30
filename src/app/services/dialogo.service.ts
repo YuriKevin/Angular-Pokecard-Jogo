@@ -14,91 +14,69 @@ export class DialogoService {
     switch(numeroBatalha){
       case 1:
         return this.batalha1();
-      break;
 
       case 2:
         return this.batalha2();
-      break;
 
       case 3:
         return this.batalha3();
-      break;
 
       case 5:
         return this.batalha5();
-      break;
-
+      
       case 6:
         return this.batalha6();
-      break;
 
       case 7:
         return this.batalha7();
-      break;
 
       case 8:
         return this.batalha8();
-      break;
 
       case 9:
         return this.batalha9();
-      break;
 
       case 10:
         return this.batalha10();
-      break;
 
       case 11:
         return this.batalha11();
-      break;
 
       case 12:
         return this.batalha12();
-      break;
 
       case 13:
         return this.batalha13();
-      break;
 
       case 14:
         return this.batalha14();
-      break;
 
       case 15:
         return this.batalha15();
-      break;
 
       case 16:
         return this.batalha16();
-      break;
 
       case 17:
         return this.batalha17();
-      break;
 
       case 18:
         return this.batalha18();
-      break;
 
       case 19:
         return this.batalha19();
-      break;
 
       case 20:
         return this.batalha20();
-      break;
 
       case 21:
         return this.batalha21();
-      break;
 
       case 22:
         return this.batalha22();
-      break;
 
       case 23:
         return this.batalha23();
-      break;
 
       case 24:
         return this.batalha24();
@@ -106,35 +84,27 @@ export class DialogoService {
 
       case 25:
         return this.batalha25();
-      break;
 
       case 26:
         return this.batalha26();
-      break;
 
       case 27:
         return this.batalha27();
-      break;
 
       case 28:
         return this.batalha28();
-      break;
 
       case 29:
         return this.batalha29();
-      break;
 
       case 30:
         return this.batalha30();
-      break;
 
       case 31:
         return this.batalha31();
-      break;
 
       case 0:
         return this.dialogoFinal();
-      break;
 
       default:
         return this.batalha1();
@@ -334,47 +304,45 @@ export class DialogoService {
   retornarDialogoCampanha(numeroBatalha:number):string[]{
     this.dialogo = [];
     switch(numeroBatalha){
+      case 0:
+        return this.campanha0();
+
       case 1:
         return this.campanha1();
-      break;
 
       case 4:
         return this.campanha4();
-      break;
 
       case 5:
         return this.campanha5();
-      break;
 
       case 14:
         return this.campanha14();
-      break;
 
       case 16:
         return this.campanha16();
-      break;
 
       case 20:
         return this.campanha20();
-      break;
 
       case 21:
         return this.campanha21();
-      break;
 
       case 26:
         return this.campanha26();
-      break;
       
       case 30:
         return this.campanha30();
-      break;
 
       case 31:
         return this.campanha31();
-      break;
     }
     
+    return this.dialogo;
+  }
+  campanha0():string[]{
+    this.personagemAtual = 'professor.png';
+    this.dialogo.push('Deck completo, para adicionar uma nova carta antes é necessário remover alguma.');
     return this.dialogo;
   }
   campanha1():string[]{
