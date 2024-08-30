@@ -65,7 +65,7 @@ export class DueloComponent implements OnInit{
     if(this.usuarioService.getTamanhoDeck()<20){
       this.router.navigate(['/campanha']);
     }
-      this.usuario = this.usuarioService.getUsuario();
+      this.usuario = this.usuarioService.usuario;
       this.batalhaRepetida = this.batalhaService.batalhaRepetida;
       if(this.batalhaRepetida && this.batalhaRepetida!=0){
         this.numeroBatalha = this.batalhaRepetida;
@@ -116,7 +116,6 @@ export class DueloComponent implements OnInit{
         cardPerdedor?.classList.add('perdeu');
 
         if (this.pontosUsuario === 7) {
-          localStorage.setItem('usuario', JSON.stringify(this.usuarioService.usuario));
           setTimeout(() => {
             this.jogadaDiv=false;
             this.fecharBackgroundDiv = false;
@@ -124,7 +123,7 @@ export class DueloComponent implements OnInit{
             this.venceu=true;
             if(!this.batalhaRepetida){
               this.usuario.batalhaAtual+=1;
-              console.log("pontuação:"+this.usuario.batalhaAtual);
+              this.usuarioService.salvarUsuario();
             }
             else{
               this.batalhaService.batalhaRepetida = 0;
@@ -208,7 +207,7 @@ export class DueloComponent implements OnInit{
     this.jogadaDiv = false;
     this.abrirCartaDiv = true;
     const card:Card = this.cardService.novaCarta(this.oponente.dificuldade);
-    localStorage.setItem('usuario', JSON.stringify(this.usuarioService.usuario));
+    this.usuarioService.salvarUsuario();
     setTimeout(()=>{
       this.novaCartaCaminho = "assets/images/cards/"+card.imagem;
     },5000);

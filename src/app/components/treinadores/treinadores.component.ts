@@ -66,6 +66,7 @@ export class TreinadoresComponent implements OnInit{
   selecionarSkin(imagemSelecionada:string){
     if(this.possui.includes(imagemSelecionada)){
       this.usuarioService.usuario.imagem = imagemSelecionada;
+      this.usuarioService.salvarUsuario();
       this.mensagemDivSelecionada = 'Skin selecionada';
       this.mostrarDivSelecionada = true;
       setTimeout(()=> {

@@ -32,7 +32,7 @@ export class GiovanniComponent implements OnInit{
             this.voltarDiv = true;
             this.usuarioService.usuario.derrotouGiovanni = true;
             this.usuarioService.usuario.cards = this.cardService.cards;
-            localStorage.setItem('usuario', JSON.stringify(this.usuarioService.usuario));
+            this.usuarioService.salvarUsuario();
           }, 1000)
         }, 5000)
       }, 10000)

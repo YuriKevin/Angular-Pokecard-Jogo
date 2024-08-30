@@ -30,7 +30,7 @@ export class CampanhaComponent implements OnInit, AfterViewInit{
     if(!this.usuarioService.usuario){
       this.router.navigate(['/cadastro']);
     }
-    localStorage.setItem('usuario', JSON.stringify(this.usuarioService.usuario));
+    this.usuarioService.salvarUsuario();
     const numeroBatalhaAtual = this.usuarioService.usuario.batalhaAtual; 
     if(numeroBatalhaAtual>20 && this.usuarioService.usuario.campeaoLigaAmadora==false){
       this.router.navigate(['/liga-amadora']);
