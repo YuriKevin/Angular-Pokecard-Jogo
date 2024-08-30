@@ -18,16 +18,6 @@
         </div>
     </div>
 </div>
-<div class="dialogo" *ngIf="dialogoDiv">
-    <div class="dialogo-centro">
-        <div class="dialogo-continuar" *ngIf="dialogoDiv">
-            <button (click)="fecharDialogo()">Continuar</button>
-        </div>
-        <div class="dialogo-conversa">
-            <p>{{this.mensagem}}</p>
-        </div>
-        <div class="dialogo-personagem">
-            <img src="assets/images/personagens/professor.png" alt="">
-        </div>
-    </div>
+<div *ngIf="mensagemDiv" class="mensagem">
+    <p>{{this.mensagem}}</p>
 </div>

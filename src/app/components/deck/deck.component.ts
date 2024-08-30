@@ -17,9 +17,8 @@ export class DeckComponent implements OnInit{
   cartas!:Card[];
   cartasFiltradas:Card[] = [];
   caminhoImagem:string = 'assets/images/cards/';
-  mensagem:string='';
-  dialogoDiv:boolean=false;
-
+  mensagemDiv:boolean=false;
+  mensagem:string = 'Deck completo, para adicionar uma nova carta antes é necessário remover alguma.';
 
   constructor(private usuarioService:UsuarioService){}
 
@@ -52,8 +51,10 @@ export class DeckComponent implements OnInit{
         this.usuarioService.usuario.deck = this.deck;
       }
       else if(this.deck.length>=20){
-        this.mensagem = 'Deck completo, para adicionar uma nova carta antes é necessário remover alguma.';
-        this.dialogoDiv=true;
+        this.mensagemDiv=true;
+        setTimeout(()=> {
+          this.mensagemDiv = false;
+        }, 2000)
       }
     }
   }
@@ -65,7 +66,7 @@ export class DeckComponent implements OnInit{
   }
 
   fecharDialogo(){
-    this.dialogoDiv = false;
+    this.mensagemDiv = false;
   }
 
 
