@@ -173,7 +173,7 @@ export class CardService {
       this.deckInimigo.push(cartasFiltradas2[index]);
       index++
     }*/
-      return this.deckInimigo;
+      return this.embaralhar(this.deckInimigo);
   }
 
   deckJessie():Card[]{
