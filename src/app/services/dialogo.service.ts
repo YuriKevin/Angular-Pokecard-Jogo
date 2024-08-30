@@ -247,7 +247,7 @@ export class DialogoService {
     return this.dialogo;
   }
   batalha25():string[]{
-    this.dialogo.push('Eu sou o Koga.');
+    this.dialogo.push('Eu sou o Lance.');
     this.dialogo.push('O último desafiante da Elite Four.');
     this.dialogo.push('Você está a um passo da liga mundial.');
     this.dialogo.push('Mas será o passo mais difícil, sinto muito.');
