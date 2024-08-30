@@ -131,7 +131,7 @@ export class CardService {
     let num = getRandomInt(cards.length);
     let numeroVezesWhile = 0;
     while(true){
-      if (!this.usuarioService.getUsuario().cards.some(carta => carta.id === cards[num].id)) {
+      if (!this.usuarioService.usuario.cards.some(carta => carta.id === cards[num].id)) {
         this.usuarioService.addNovaCarta(cards[num]);
         return cards[num];
       }
@@ -1601,10 +1601,10 @@ export class CardService {
       card151, card152, card153, card154, card155
     );
 
-    if(!(this.usuarioService.getUsuario().cards.length>0)){
-      this.usuarioService.getUsuario().cards = this.deckInicial();
-      this.usuarioService.getUsuario().cards.forEach(carta => {
-        this.usuarioService.getUsuario().deck.push(carta);
+    if(!(this.usuarioService.usuario.cards.length>0)){
+      this.usuarioService.usuario.cards = this.deckInicial();
+      this.usuarioService.usuario.cards.forEach(carta => {
+        this.usuarioService.usuario.deck.push(carta);
       });
     }
 

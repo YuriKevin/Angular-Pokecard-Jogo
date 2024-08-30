@@ -24,7 +24,7 @@ export class CartasComponent {
 
   constructor(private cardService:CardService, private usuarioService:UsuarioService){
     this.cartas = this.cardService.cards;
-    this.cartasDoUsuario = this.usuarioService.getUsuario().cards;
+    this.cartasDoUsuario = this.usuarioService.usuario.cards;
 
     this.cartas.forEach(carta => {
   
