@@ -215,7 +215,7 @@ export class BatalhaService {
     return this.treinadorAtual = this.gerarOponenteDificil('Jessie & James', 'jessiejames.png');
   }
   batalha22(){
-    return this.treinadorAtual = this.gerarTreinadorEliteFour('Lorelei', 'lorelei.png', 'A lenda diz que Lorelei possui um dos cães lendários.');
+    return this.treinadorAtual = this.gerarTreinadorEliteFour('Lorelei', 'lorelei.png', 'Pokémons de água são sua especialidade.');
   }
   batalha23(){
     return this.treinadorAtual = this.gerarTreinadorEliteFour('Bruno', 'bruno.png', 'Caso não esteja conseguindo avançar, batalhe com Lorelei na aba "treinadores" para obter mais lendárias.');
@@ -306,7 +306,7 @@ export class BatalhaService {
       dificuldade: 'Difícil',
       deck: this.cardService.deckDificilAleatorio(),
       imagem: imagem,
-      dica: 'A liga pokémon não libera dicas. Seus participantes normalmente possuem uma vasta quantidade de pokémons.'
+      dica: 'Oponente difícil.'
     };
   }
   gerarTreinadorEliteFour(nome:string, imagem:string, dica:string){
