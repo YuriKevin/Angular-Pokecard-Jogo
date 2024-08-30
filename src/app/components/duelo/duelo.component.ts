@@ -134,15 +134,16 @@ export class DueloComponent implements OnInit{
       } 
       else {
         this.pontosOponente++;
+        if(this.ligaAmadora && !this.batalhaRepetida){
+          this.usuario.batalhaAtual = 16;
+        }
         if (this.pontosOponente === 7) {
           setTimeout(() => {
             this.jogadaDiv=false;
             this.terminoPartida=true;
             this.perdeu=true;
           }, 4000);
-          if(this.ligaAmadora && !this.batalhaRepetida){
-              this.usuario.batalhaAtual = 16;
-          }
+          
           this.batalhaService.ligaAmadora = false;
         }
       }
