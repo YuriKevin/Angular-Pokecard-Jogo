@@ -304,9 +304,6 @@ export class DialogoService {
   retornarDialogoCampanha(numeroBatalha:number):string[]{
     this.dialogo = [];
     switch(numeroBatalha){
-      case 0:
-        return this.campanha0();
-
       case 1:
         return this.campanha1();
 
@@ -338,11 +335,6 @@ export class DialogoService {
         return this.campanha31();
     }
     
-    return this.dialogo;
-  }
-  campanha0():string[]{
-    this.personagemAtual = 'professor.png';
-    this.dialogo.push('Deck completo, para adicionar uma nova carta antes é necessário remover alguma.');
     return this.dialogo;
   }
   campanha1():string[]{
