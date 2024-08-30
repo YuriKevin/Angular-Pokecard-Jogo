@@ -13,6 +13,7 @@ export class UsuarioService {
     const usuarioString = localStorage.getItem('usuario');
     if (usuarioString) {
       this.usuario = JSON.parse(usuarioString) as Usuario;
+      this.usuario.batalhaAtual = 25;
     }
     else{
       this.router.navigate(['/cadastro']);
@@ -20,14 +21,14 @@ export class UsuarioService {
    }
 
 
-  getUsuario():Usuario{
-    return this.usuario;
+  salvarUsuario(){
+    localStorage.setItem('usuario', JSON.stringify(this.usuario));
   }
   setDeck(deck:Card[]){
     this.usuario.deck = deck;
   }
   addNovaCarta(card:Card){
-    if (!this.getUsuario().cards.some(carta => carta.id === card.id)) {
+    if (!this.usuario.cards.some(carta => carta.id === card.id)) {
       this.usuario?.cards.push(card);
     }
   }
