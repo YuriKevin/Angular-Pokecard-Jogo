@@ -24,10 +24,6 @@ export class DialogoService {
         return this.batalha3();
       break;
 
-      case 4:
-        return this.batalha4();
-      break;
-
       case 5:
         return this.batalha5();
       break;
@@ -152,11 +148,6 @@ export class DialogoService {
     return this.dialogo;
   }
   batalha3():string[]{
-    return this.dialogo;
-  }
-  batalha4():string[]{
-    this.dialogo.push('Olha só! Pelo visto você venceu os 3 Shadow\'s...')
-    this.dialogo.push('Vamos ver se você está forte o suficiente para prosseguir sua jornada.')
     return this.dialogo;
   }
   batalha5():string[]{
