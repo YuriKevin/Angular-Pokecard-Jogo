@@ -13,7 +13,7 @@ export class UsuarioService {
     const usuarioString = localStorage.getItem('usuario');
     if (usuarioString) {
       this.usuario = JSON.parse(usuarioString) as Usuario;
-      this.usuario.batalhaAtual = 25;
+      this.usuario.batalhaAtual = 31;
     }
     else{
       this.router.navigate(['/cadastro']);

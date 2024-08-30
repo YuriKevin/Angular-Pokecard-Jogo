@@ -287,11 +287,19 @@ export class CardService {
     this.deckInimigo.push(this.cards[67]);
     this.deckInimigo.push(this.cards[84]);
     this.deckInimigo.push(this.cards[118]);
+    this.deckInimigo.push(this.cards[15]);
+    this.deckInimigo.push(this.cards[32]);
+    this.deckInimigo.push(this.cards[49]);
+    this.deckInimigo.push(this.cards[50]);
+    this.deckInimigo.push(this.cards[66]);
+    this.deckInimigo.push(this.cards[67]);
+    this.deckInimigo.push(this.cards[84]);
+    this.deckInimigo.push(this.cards[118]);
     return this.embaralhar(this.deckInimigo);
   }
   deckGiovanni(){
     this.deckInimigo = []
-    for(let i = 0; i < 15; i++){
+    for(let i = 0; i < 18; i++){
       this.deckInimigo.push(this.cards[119]);
       this.deckInimigo.push(this.gerarCartaLendaria());
     }
