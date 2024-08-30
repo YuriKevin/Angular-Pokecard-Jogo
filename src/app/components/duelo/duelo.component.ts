@@ -119,6 +119,7 @@ export class DueloComponent implements OnInit{
           localStorage.setItem('usuario', JSON.stringify(this.usuarioService.usuario));
           setTimeout(() => {
             this.jogadaDiv=false;
+            this.fecharBackgroundDiv = false;
             this.terminoPartida=true;
             this.venceu=true;
             if(!this.batalhaRepetida){
