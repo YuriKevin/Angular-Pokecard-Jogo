@@ -134,6 +134,12 @@ export class DueloComponent implements OnInit{
       } 
       else {
         this.pontosOponente++;
+        const cardVencedor = document.getElementById('cardOponente');
+        cardVencedor?.classList.remove('brilho-branco')
+        cardVencedor?.classList.add('venceu');
+        const cardPerdedor = document.getElementById('cardUsuario');
+        cardPerdedor?.classList.remove('brilho-branco')
+        cardPerdedor?.classList.add('perdeu');
         if(this.ligaAmadora && !this.batalhaRepetida){
           this.usuario.batalhaAtual = 16;
         }
