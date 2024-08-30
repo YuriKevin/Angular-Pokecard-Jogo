@@ -210,8 +210,27 @@ export class CardService {
       this.deckInimigo.push(this.cards[64]);
       this.deckInimigo.push(this.cards[65]);
       this.deckInimigo.push(this.cards[67]);
+      this.deckInimigo.push(this.cards[67]);
+      this.deckInimigo.push(this.cards[67]);
+      this.deckInimigo.push(this.cards[67]);
+      this.deckInimigo.push(this.cards[63]);
+      this.deckInimigo.push(this.cards[64]);
+      this.deckInimigo.push(this.cards[65]);
+      this.deckInimigo.push(this.cards[67]);
     }
     else if(nome=='Bruno'){
+      this.deckInimigo.push(this.cards[101]);
+      this.deckInimigo.push(this.cards[101]);
+      this.deckInimigo.push(this.cards[101]);
+      this.deckInimigo.push(this.cards[101]);
+      this.deckInimigo.push(this.cards[101]);
+      this.deckInimigo.push(this.cards[101]);
+      this.deckInimigo.push(this.cards[85]);
+      this.deckInimigo.push(this.cards[96]);
+      this.deckInimigo.push(this.cards[94]);
+      this.deckInimigo.push(this.cards[95]);
+      this.deckInimigo.push(this.cards[96]);
+      this.deckInimigo.push(this.cards[98]);
       this.deckInimigo.push(this.cards[101]);
       this.deckInimigo.push(this.cards[101]);
       this.deckInimigo.push(this.cards[101]);
@@ -238,8 +257,29 @@ export class CardService {
       this.deckInimigo.push(this.cards[118]);
       this.deckInimigo.push(this.cards[118]);
       this.deckInimigo.push(this.cards[118]);
+      this.deckInimigo.push(this.cards[112]);
+      this.deckInimigo.push(this.cards[113]);
+      this.deckInimigo.push(this.cards[114]);
+      this.deckInimigo.push(this.cards[115]);
+      this.deckInimigo.push(this.cards[116]);
+      this.deckInimigo.push(this.cards[117]);
+      this.deckInimigo.push(this.cards[118]);
+      this.deckInimigo.push(this.cards[118]);
+      this.deckInimigo.push(this.cards[118]);
+      this.deckInimigo.push(this.cards[118]);
+      this.deckInimigo.push(this.cards[118]);
+      this.deckInimigo.push(this.cards[118]);
     }
     else{
+      this.deckInimigo.push(this.cards[49]);
+      this.deckInimigo.push(this.cards[67]);
+      this.deckInimigo.push(this.cards[150]);
+      this.deckInimigo.push(this.cards[151]);
+      this.deckInimigo.push(this.cards[152]);
+      this.deckInimigo.push(this.cards[153]);
+      this.deckInimigo.push(this.cards[154]);
+      this.deckInimigo.push(this.cards[154]);
+      this.deckInimigo.push(this.cards[67]);
       this.deckInimigo.push(this.cards[49]);
       this.deckInimigo.push(this.cards[67]);
       this.deckInimigo.push(this.cards[150]);
