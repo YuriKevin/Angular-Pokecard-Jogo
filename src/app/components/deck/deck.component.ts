@@ -40,6 +40,7 @@ export class DeckComponent implements OnInit{
     const indexCartaRemovida = this.deck.findIndex(card => card.id === carta.id);
     this.deck.splice(indexCartaRemovida, 1);
     this.cartasFiltradas.push(carta);
+    this.usuarioService.usuario.deck = this.deck;
   }
   adicionarCartaDeck(carta:Card){
     const indexCartaAdicionada = this.deck.findIndex(card => card.id === carta.id);
@@ -48,6 +49,7 @@ export class DeckComponent implements OnInit{
         this.deck.push(carta);
         const indexCartaAdicionada2 = this.cartasFiltradas.findIndex(card => card.id === carta.id);
         this.cartasFiltradas.splice(indexCartaAdicionada2, 1);
+        this.usuarioService.usuario.deck = this.deck;
       }
       else if(this.deck.length>=20){
         this.mensagem = 'Deck completo, para adicionar uma nova carta antes é necessário remover alguma.';
@@ -59,6 +61,7 @@ export class DeckComponent implements OnInit{
   removerTodas(){
     this.cartasFiltradas.push(...this.deck);
     this.deck = [];
+    this.usuarioService.usuario.deck = this.deck;
   }
 
   fecharDialogo(){
