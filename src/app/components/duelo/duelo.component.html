@@ -118,7 +118,7 @@
         </div>
     </div>
 
-    <div class="abrir-carta" *ngIf="abrirCartaDiv">
+    <div class="abrir-carta" *ngIf="abrirCartaDiv" [routerLink]="['/campanha']">
         <img src="{{novaCartaCaminho}}" alt="">
         <div class="abrir-carta-voltar">
             <button [routerLink]="['/campanha']">Voltar</button>
