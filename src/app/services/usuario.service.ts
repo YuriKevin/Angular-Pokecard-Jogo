@@ -11,10 +11,15 @@ export class UsuarioService {
   
   constructor(private router:Router) {
     const usuarioString = localStorage.getItem('usuario');
-    if (usuarioString) {
-      this.usuario = JSON.parse(usuarioString) as Usuario;
-    }
-    else{
+    if (usuarioString && usuarioString.trim() !== '') {
+      try {
+        this.usuario = JSON.parse(usuarioString) as Usuario;
+      } catch (error) {
+        console.error('Erro ao analisar o JSON do usuário:', error);
+        this.router.navigate(['/cadastro']);
+      }
+    } 
+    else {
       this.router.navigate(['/cadastro']);
     }
    }
