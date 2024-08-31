@@ -128,14 +128,14 @@ export class CardService {
   gerarUmaCartaAleatoria(cards:Card[]): Card{
     const getRandomInt = (max: number) => Math.floor(Math.random() * max);
 
-    let num = getRandomInt(cards.length);
     let numeroVezesWhile = 0;
     while(true){
+      const num = getRandomInt(cards.length);
       if (!this.usuarioService.usuario.cards.some(carta => carta.id === cards[num].id)) {
         this.usuarioService.addNovaCarta(cards[num]);
         return cards[num];
       }
-      else if(numeroVezesWhile==100){
+      else if(numeroVezesWhile>=100){
         return cards[num];
       }
       numeroVezesWhile++
