@@ -122,7 +122,7 @@ export class DueloComponent implements OnInit{
             this.terminoPartida=true;
             this.venceu=true;
             if(!this.batalhaRepetida){
-              this.usuario.batalhaAtual+=1;
+              this.usuarioService.usuario.batalhaAtual+=1;
               this.usuarioService.salvarUsuario();
             }
             else{
