@@ -358,7 +358,7 @@ export class DialogoService {
     this.personagemAtual = 'professor.png';
     this.dialogo.push('Você me venceu!');
     this.dialogo.push('Agora eu tenho uma missão importante para você...');
-    this.dialogo.push('Antes de tudo, saiba a sua jornada a partir daqui ficará cada vez mais difícil.');
+    this.dialogo.push('Antes de tudo, saiba que a sua jornada a partir daqui ficará cada vez mais difícil.');
     this.dialogo.push('Você ja ouviu falar de líderes de ginásios?');
     this.dialogo.push('Eles são treinadores que oferecem desafios nos seus ginásios.');
     this.dialogo.push('O grande diferencial é que eles utilizam pokémons de elementos específicos, então use isso ao seu favor.');
