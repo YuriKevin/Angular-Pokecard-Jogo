@@ -44,6 +44,7 @@ export class DueloComponent implements OnInit{
   numeroBatalha!:number;
   batalhaRepetida!:number;
   ligaAmadora!:boolean;
+  voltarCampanha:boolean = false;
 
   vantagem: { [key: string]: string[] } = {
     Elétrico: ['Água', 'Voador'],
@@ -210,6 +211,9 @@ export class DueloComponent implements OnInit{
     this.usuarioService.salvarUsuario();
     setTimeout(()=>{
       this.novaCartaCaminho = "assets/images/cards/"+card.imagem;
+      setTimeout(() => {
+        this.voltarCampanha = true;
+    }, 1000)
     },5000);
     
   }
