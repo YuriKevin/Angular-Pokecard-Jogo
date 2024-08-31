@@ -37,17 +37,16 @@ export class DeckComponent implements OnInit{
 
   removerCartaDeck(carta:Card){
     const indexCartaRemovida = this.deck.findIndex(card => card.id === carta.id);
-    this.deck.splice(indexCartaRemovida, 1);
-    this.cartasFiltradas.push(carta);
+    this.cartasFiltradas.push(this.deck.splice(indexCartaRemovida, 1)[0]);
     this.usuarioService.usuario.deck = this.deck;
+    this.usuarioService.salvarUsuario();
   }
   adicionarCartaDeck(carta:Card){
     const indexCartaAdicionada = this.deck.findIndex(card => card.id === carta.id);
     if(indexCartaAdicionada==-1){
       if(this.deck.length<20){
-        this.deck.push(carta);
         const indexCartaAdicionada2 = this.cartasFiltradas.findIndex(card => card.id === carta.id);
-        this.cartasFiltradas.splice(indexCartaAdicionada2, 1);
+        this.deck.push(this.cartasFiltradas.splice(indexCartaAdicionada2, 1)[0]);
         this.usuarioService.usuario.deck = this.deck;
       }
       else if(this.deck.length>=20){
@@ -57,12 +56,13 @@ export class DeckComponent implements OnInit{
         }, 2000)
       }
     }
+    this.usuarioService.salvarUsuario();
   }
 
   removerTodas(){
-    this.cartasFiltradas.push(...this.deck);
-    this.deck = [];
+    this.cartasFiltradas.push(...this.deck.splice(0, this.deck.length));
     this.usuarioService.usuario.deck = this.deck;
+    this.usuarioService.salvarUsuario();
   }
 
   fecharDialogo(){
