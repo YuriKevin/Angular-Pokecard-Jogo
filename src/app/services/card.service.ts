@@ -1609,12 +1609,12 @@ export class CardService {
       card151, card152, card153, card154, card155
     );
 
-    if(!(this.usuarioService.usuario.cards.length>0)){
+    /*if(!(this.usuarioService.usuario.cards.length>0)){
       this.usuarioService.usuario.cards = this.deckInicial();
       this.usuarioService.usuario.cards.forEach(carta => {
         this.usuarioService.usuario.deck.push(carta);
       });
-    }
+    }*/
 
     this.cartaAjuda = {
       id: 1000,
