@@ -12,7 +12,7 @@ export class CardService {
   cartaAjuda!:Card;
 
 
-  public deckInicial(){
+  deckInicial(){
     const cartasFiltradas = this.cards.filter(card => card.forca <=100);
     return this.gerarCartasAleatorias(cartasFiltradas);
   }
