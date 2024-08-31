@@ -118,7 +118,7 @@
         </div>
     </div>
 
-    <div class="abrir-carta" *ngIf="abrirCartaDiv" [routerLink]="['/campanha']">
+    <div class="abrir-carta" *ngIf="abrirCartaDiv">
         <img src="{{novaCartaCaminho}}" alt="">
         <div class="abrir-carta-voltar">
             <button [routerLink]="['/campanha']">Voltar</button>
@@ -129,5 +129,7 @@
 <div class="fechar-background" (click)="fecharBackground()" *ngIf="fecharBackgroundDiv">
 
 </div>
+
+<div class="ir-campanha" [routerLink]="['/campanha']" *ngIf="voltarCampanha"></div>
 
 <app-dialogo [numeroBatalha]="numeroBatalha" [imagemDialogo]="oponente.imagem" *ngIf="dialogoDiv"></app-dialogo>
