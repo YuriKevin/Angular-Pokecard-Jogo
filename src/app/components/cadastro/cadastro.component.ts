@@ -34,6 +34,7 @@ export class CadastroComponent {
         campeaoLigaMundial: false,
         derrotouGiovanni:false
       };
+      this.usuario.cards = JSON.parse(JSON.stringify(this.usuario.deck));
       this.usuarioService.usuario = this.usuario;
       localStorage.setItem('usuario', JSON.stringify(this.usuario));
       this.router.navigate(['/campanha']);
