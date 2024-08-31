@@ -616,7 +616,8 @@
         font-size: 10px;
     }
     .inicio-treinador img{
-        width: 90%;
+        width: 95%;
+        height: auto;
     }
     .versus img{
         width: 15vw;
