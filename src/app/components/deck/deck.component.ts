@@ -63,6 +63,7 @@ export class DeckComponent implements OnInit{
     }
     else if(this.cartasFiltradas.length<1){
       this.removerCartaDeck(this.cartaSelecionadaRemover!);
+      this.cartaSelecionadaRemover = undefined;
     }
     this.usuarioService.usuario.deck = this.deck;
     this.usuarioService.salvarUsuario();
@@ -70,7 +71,8 @@ export class DeckComponent implements OnInit{
 
   removerCartaDeck(carta:Card){
     const indexCartaRemovida = this.deck.findIndex(card => card.id === carta.id);
-    this.cartasFiltradas.push(this.deck.splice(indexCartaRemovida, 1)[0]);
+    this.deck.splice(indexCartaRemovida, 1);
+    this.cartasFiltradas.push(carta!);
     this.usuarioService.usuario.deck = this.deck;
     this.usuarioService.salvarUsuario();
   }
