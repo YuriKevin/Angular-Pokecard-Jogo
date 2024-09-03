@@ -56,11 +56,13 @@ export class DeckComponent implements OnInit{
       this.cartasFiltradas = this.cartasFiltradas.filter(card => card.id !== this.cartaSelecionadaAdicionar?.id);
       this.cartaSelecionadaRemover = undefined;
       this.cartaSelecionadaAdicionar = undefined;
-      
     }
     else if(this.deck.length<20 && this.cartaSelecionadaAdicionar){
       this.adicionarCartaDeck(this.cartaSelecionadaAdicionar);
       this.cartaSelecionadaAdicionar = undefined;
+    }
+    else if(this.cartasFiltradas.length<1){
+      this.removerCartaDeck(this.cartaSelecionadaRemover!);
     }
     this.usuarioService.usuario.deck = this.deck;
     this.usuarioService.salvarUsuario();
