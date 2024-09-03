@@ -2,19 +2,19 @@
 <div class="container">
     <div class="block">
         <div class="titulo">
-            <h1>Clique na carta para remover do deck</h1>
+            <h1>Selecione a carta para remover do deck</h1>
         </div>
         <div class="remover-cartas">
             <button (click)="removerTodas()">Remover todas</button>
         </div>
         <div class="flex">
-            <img *ngFor="let carta of deck" (click)="removerCartaDeck(carta)" [src]="caminhoImagem + carta.imagem"  alt="">
+            <img *ngFor="let carta of deck" (click)="trocarCartaRemover(carta)" [src]="caminhoImagem + carta.imagem" [id]="carta.id" alt="">
         </div>
         <div class="titulo">
             <h1>Clique na carta para adicionar ao deck</h1>
         </div>
         <div class="flex">
-            <img *ngFor="let carta of cartasFiltradas" (click)="adicionarCartaDeck(carta)" [src]="caminhoImagem + carta.imagem"  alt="">
+            <img *ngFor="let carta of cartasFiltradas" (click)="trocarCartaAdicionar(carta)" [src]="caminhoImagem + carta.imagem"  alt="">
         </div>
     </div>
 </div>
