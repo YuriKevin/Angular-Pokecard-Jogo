@@ -19,6 +19,8 @@ export class DeckComponent implements OnInit{
   caminhoImagem:string = 'assets/images/cards/';
   mensagemDiv:boolean=false;
   mensagem:string = 'Deck completo, para adicionar uma nova carta antes é necessário remover alguma.';
+  cartaSelecionadaRemover!:Card | undefined;
+  cartaSelecionadaAdicionar!:Card | undefined;
 
   constructor(private usuarioService:UsuarioService){}
 
@@ -33,6 +35,35 @@ export class DeckComponent implements OnInit{
           this.cartasFiltradas.push(carta);
         }
       });
+  }
+
+  trocarCartaRemover(cartaSelecionadaRemover:Card){
+    this.cartaSelecionadaRemover = cartaSelecionadaRemover;
+    const imagemHtml = document.getElementById(this.cartaSelecionadaRemover.id.toString());
+    imagemHtml?.classList.add('brilho');
+    this.realizarTroca();
+  }
+  trocarCartaAdicionar(cartaSelecionadaAdicionar:Card){
+    this.cartaSelecionadaAdicionar = cartaSelecionadaAdicionar;
+    this.realizarTroca();
+  }
+
+  realizarTroca(){
+    if(this.cartaSelecionadaRemover && this.cartaSelecionadaAdicionar){
+      const indexCartaRemovida = this.deck.findIndex(card => card.id === this.cartaSelecionadaRemover?.id);
+      this.deck.splice(indexCartaRemovida, 1, this.cartaSelecionadaAdicionar);
+      this.cartasFiltradas.push(this.cartaSelecionadaRemover);
+      this.cartasFiltradas = this.cartasFiltradas.filter(card => card.id !== this.cartaSelecionadaAdicionar?.id);
+      this.cartaSelecionadaRemover = undefined;
+      this.cartaSelecionadaAdicionar = undefined;
+      
+    }
+    else if(this.deck.length<20 && this.cartaSelecionadaAdicionar){
+      this.adicionarCartaDeck(this.cartaSelecionadaAdicionar);
+      this.cartaSelecionadaAdicionar = undefined;
+    }
+    this.usuarioService.usuario.deck = this.deck;
+    this.usuarioService.salvarUsuario();
   }
 
   removerCartaDeck(carta:Card){
@@ -56,7 +87,6 @@ export class DeckComponent implements OnInit{
         }, 2000)
       }
     }
-    this.usuarioService.salvarUsuario();
   }
 
   removerTodas(){
