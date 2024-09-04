@@ -712,9 +712,9 @@ export class CardService {
       raridade: 'Rara'
     };
     const card49: Card = {
-      id: 48,
+      id: 49,
       nome: 'Heatran',
-      imagem: '48.png',
+      imagem: '49.png',
       forca: 220,
       elemento: 'Fogo',
       raridade: 'Rara'
