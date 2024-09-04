@@ -10,7 +10,7 @@ div{
     justify-content: center;
 }
 .container{
-    background-image: url('assets/images/final.jpg');
+    background-image: url('../../../../public/assets/images/final.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
